@@ -1,0 +1,160 @@
+/* style.css - DonaJusto */
+
+/* ==========================================================================
+   1. EC-006: Estilos para barras de progreso (stock) sin estilos inline
+   ========================================================================== */
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 0.65rem;
+    border-radius: 9999px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e2e8f0;
+    border-radius: 9999px;
+}
+
+.dark progress::-webkit-progress-bar {
+    background-color: #334155;
+}
+
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 9999px;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 9999px;
+}
+
+/* ==========================================================================
+   2. Patrón de Fondo y Glassmorphism Moderno
+   ========================================================================== */
+.dot-pattern {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.25) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+}
+
+.dark .dot-pattern {
+    background-image: radial-gradient(rgba(51, 65, 85, 0.45) 1.2px, transparent 1.2px);
+    background-size: 24px 24px;
+}
+
+.glass-header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-header {
+    background-color: rgba(15, 23, 42, 0.85); /* slate-900 con blur */
+}
+
+.modern-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.dark .modern-card {
+    background-color: rgba(30, 41, 59, 0.85);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+/* ==========================================================================
+   3. Chips de Filtrado y Botones
+   ========================================================================== */
+.filter-chip {
+    background-color: #f1f5f9;
+    color: #475569;
+    border-color: #e2e8f0;
+}
+
+.dark .filter-chip {
+    background-color: #1e293b;
+    color: #94a3b8;
+    border-color: #334155;
+}
+
+.filter-chip:hover:not(.active) {
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.filter-chip.active {
+    background-color: #10b981 !important;
+    border-color: #10b981 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ==========================================================================
+   4. Animaciones y Microinteracciones Suaves
+   ========================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Elevación sutil y limpia SOLO para tarjetas individuales del catálogo */
+#catalog-grid article {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#catalog-grid article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.dark #catalog-grid article:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* Animación del modal */
+#detail-modal:not(.hidden) > div[role="dialog"] {
+    animation: modalScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94) translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Pulso suave para badge crítico */
+@keyframes pulseSubtle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.pulse-badge {
+    animation: pulseSubtle 2.5s infinite ease-in-out;
+}

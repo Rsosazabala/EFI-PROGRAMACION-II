@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <defs>
+    <linearGradient id="dj-gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <filter id="dj-shadow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#064e3b" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Contenedor squircle con gradiente esmeralda -->
+  <rect width="48" height="48" rx="13" fill="url(#dj-gradient)"/>
+  
+  <!-- Cuenco / plato de sustento solidario -->
+  <path d="M13 25C13 31.075 17.925 36 24 36C30.075 36 35 31.075 35 25H13Z" fill="#ffffff" filter="url(#dj-shadow)"/>
+  <rect x="11.5" y="22.5" width="25" height="3.5" rx="1.75" fill="#ffffff"/>
+  
+  <!-- Brote / corazón de ayuda en ámbar cálido -->
+  <path d="M24 11C24 11 19 14.5 19 18C19 20.761 21.239 23 24 23C26.761 23 29 20.761 29 18C29 14.5 24 11 24 11Z" fill="#f59e0b"/>
+  <path d="M24 14.5C26 13 28 13.5 29.5 15C30.8 16.3 30.5 18.5 29 20" stroke="#fef3c7" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

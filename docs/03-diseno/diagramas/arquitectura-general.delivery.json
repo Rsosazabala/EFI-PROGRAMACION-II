@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "7bef470a-8e7e-4785-936c-48becb27836b",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/julian/itec/proyecto_donajusto/docs/03-diseno/diagramas/arquitectura-general.json",
+  "output": "/home/julian/itec/proyecto_donajusto/docs/03-diseno/diagramas/arquitectura-general.html",
+  "specification": {
+    "sha256": "c6ff34920a0362829705ee29e50e727bf894c55992d9711b15f7ff129712f7e4",
+    "bytes": 36960
+  },
+  "artifact": {
+    "sha256": "7171f4bb3ebb4950e6f4d3d89eeb1062c1d57a158ab487c532348354b6a1c8a4",
+    "bytes": 781578
+  }
+}

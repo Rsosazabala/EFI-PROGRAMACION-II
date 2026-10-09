@@ -2,6 +2,17 @@
 
 Reglas para cualquier agente de IA (Antigravity, Claude Code, Cursor, Codex u otro) que lea, proponga o modifique código en este repositorio. Antigravity y la mayoría de los agentes modernos leen este archivo automáticamente desde la raíz del proyecto; Claude Code lo recibe a través de `CLAUDE.md`.
 
+## 0. Alcance y precedencia (leer primero)
+
+Este archivo describe las reglas del proyecto completo (**fase futura**, con backend). La **entrega EFI de Programación II 2026** es solo frontend: ver `README.md`, sección «Fase actual (EFI) y Fase futura».
+
+Mientras se trabaje en la EFI:
+
+- **Mandan, en este orden:** `.agents/rules/antigravity_global_rules.md` → `docs/contexto/*` → este archivo, en todo lo que no los contradiga.
+- **No aplican:** el patrón de módulos de backend, las migraciones, Docker, los comandos `make dev/test/lint/migrate`, los tests de integración y las carpetas `backend/` y `frontend/` (secciones 2 y 4 y el árbol del README). No crear backend ni base de datos aunque el README los describa.
+- **Siguen valiendo:** tratar los datos como sensibles, usar solo datos de prueba ficticios, no commitear secretos, no hacer push directo a `main`, commits convencionales y justificar cualquier dependencia nueva.
+- **Decisiones técnicas:** se registran en `docs/contexto/decisiones.md`, no en `docs/adr/`.
+
 ## 1. Contexto del proyecto
 
 DonaJusto conecta donantes con comedores y merenderos comunitarios: muestra qué necesita y qué stock tiene cada lugar, para que la ayuda se oriente a necesidades reales en vez de excedentes.

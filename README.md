@@ -11,6 +11,7 @@
 
 - [El problema](#el-problema)
 - [Qué resuelve DonaJusto](#qué-resuelve-donajusto)
+- [Fase actual (EFI) y Fase futura](#fase-actual-efi-y-fase-futura)
 - [Estructura del repositorio](#estructura-del-repositorio)
 - [Primeros pasos](#primeros-pasos)
 - [Módulos del sistema](#módulos-del-sistema)
@@ -33,6 +34,19 @@ El resultado es desperdicio en algunos casos, faltantes en otros, y una distribu
 - Orienta las donaciones hacia necesidades reales en lugar de excedentes.
 - Identifica qué insumos se usan o transforman más, para priorizarlos.
 - Registra cuántas personas asiste cada lugar: un dato clave para planificar y para mostrar impacto a quienes donan.
+
+## Fase actual (EFI) y Fase futura
+
+Hay dos etapas con alcances distintos. Conviene tenerlo claro antes de leer el resto de este README.
+
+| | **Fase actual — entrega EFI de Programación II 2026** | **Fase futura — producto real** |
+|---|---|---|
+| Alcance | Sitio web **solo frontend** con 3 vistas: Inicio, Catálogo de comedores (con modal) y Formulario de contacto/donación | Plataforma completa con usuarios, roles, stock por movimientos e indicadores |
+| Stack | HTML5 + TailwindCSS v3 (CDN) + JavaScript vanilla | Backend modular, base de datos, Docker y CI |
+| Datos | Datos de prueba ficticios dentro de `app.js` | Base de datos real |
+| Reglas para agentes | `GEMINI.md`, `.agents/rules/` y `docs/contexto/` | `AGENTS.md` completo |
+
+Las secciones **«Estructura del repositorio»**, **«Primeros pasos»** y **«Módulos del sistema»** describen la **fase futura**: no aplican a la entrega EFI. «Flujo de trabajo en Git» sí sigue vigente (ramas, commits convencionales y pull requests), salvo el CI, que no existe todavía. La estructura de archivos de la EFI está en `docs/contexto/arquitectura.md` y el detalle de qué se entrega, en `docs/contexto/flujo-de-trabajo.md`.
 
 ## Estructura del repositorio
 

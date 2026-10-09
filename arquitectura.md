@@ -18,6 +18,7 @@ donajusto-sitio/
 ├── index.html
 ├── app.js
 ├── style.css
+├── REPORTE_VERIFICACION_SDD.md
 ├── GEMINI.md
 ├── .agents/
 │   └── rules/

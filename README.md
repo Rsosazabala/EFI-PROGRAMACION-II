@@ -41,7 +41,7 @@ Hay dos etapas con alcances distintos. Conviene tenerlo claro antes de leer el r
 
 | | **Fase actual — entrega EFI de Programación II 2026** | **Fase futura — producto real** |
 |---|---|---|
-| Alcance | Sitio web **solo frontend** con 3 vistas: Inicio, Catálogo de comedores (con modal) y Formulario de contacto/donación | Plataforma completa con usuarios, roles, stock por movimientos e indicadores |
+| Alcance | Sitio web **solo frontend** con 4 vistas: Inicio, Catálogo de comedores (con modal), Equipo de desarrollo y Formulario de donación/contacto | Plataforma completa con usuarios, roles, stock por movimientos e indicadores |
 | Stack | HTML5 + TailwindCSS v3 (CDN) + JavaScript vanilla | Backend modular, base de datos, Docker y CI |
 | Datos | Datos de prueba ficticios dentro de `app.js` | Base de datos real |
 | Reglas para agentes | `GEMINI.md`, `.agents/rules/` y `docs/contexto/` | `AGENTS.md` completo |

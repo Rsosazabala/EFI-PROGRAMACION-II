@@ -109,6 +109,97 @@ Registro continuo del cumplimiento del Definition of Done (DoD) y la metodologí
   - Diseño y experiencia: ✅ (Microinteracciones suaves y consistentes).
   - Calidad de código: ✅ (Selectores CSS específicos y limpios).
 
+---
 
+## [2026-10-15] — Normalización Estructural de Contexto Vivo y Reglas Globales (Fase 1)
+- **Qué se hizo:** 
+  - Se crearon los directorios `.agents/rules/` y `docs/contexto/`.
+  - Se movió `antigravity_global_rules.md` a `.agents/rules/antigravity_global_rules.md`.
+  - Se movieron los 6 documentos del Master Context (`arquitectura.md`, `convenciones.md`, `decisiones.md`, `glosario.md`, `flujo-de-trabajo.md`, `errores-conocidos.md`) a `docs/contexto/`.
+  - Se verificó la consistencia de las directivas `@` en `GEMINI.md`, `AGENTS.md` y `CLAUDE.md`.
+- **Por qué esta solución:** Resuelve la inconsistencia crítica de rutas no encontradas en el conector maestro de Antigravity (`GEMINI.md`) y alinea el repositorio con el estándar oficial definido en `arquitectura.md` y el seminario Antigravity.
+- **Archivos tocados:** 
+  - `.agents/rules/antigravity_global_rules.md`
+  - `docs/contexto/arquitectura.md`
+  - `docs/contexto/convenciones.md`
+  - `docs/contexto/decisiones.md`
+  - `docs/contexto/glosario.md`
+  - `docs/contexto/flujo-de-trabajo.md`
+  - `docs/contexto/errores-conocidos.md`
+  - `REPORTE_VERIFICACION_SDD.md`
+- **Checklist DoD:**
+  - Funcionalidad: ✅ (Los agentes cargan el contexto vivo sin enlaces rotos).
+  - Estructura y arquitectura: ✅ (100% de coincidencia con arquitectura.md).
+  - Calidad de código: ✅ (Árbol de directorios ordenado y limpio).
+
+---
+
+## [2026-10-15] — Cumplimiento de Consignas de Cátedra: Equipo, Social Media e Identidad Visual (Fase 2)
+- **Qué se hizo:** 
+  - Se crearon 5 avatares vectoriales SVG personalizados en `assets/team/` (`julian.svg`, `matias.svg`, `santiago.svg`, `ignacio.svg`, `rodrigo.svg`).
+  - Se completó `DOCUMENTO_DE_INVESTIGACION.md` incorporando las fichas individuales con foto referenciada, cargo y perfil profesional de cada uno de los 5 integrantes (Punto 9 de la consigna).
+  - Se sincronizó la descripción textual de la identidad visual en el documento de investigación con el logotipo real (`assets/logo.svg`).
+  - Se vinculó el Favicon SVG y la etiqueta `meta name="description"` en el `<head>` de `index.html`.
+  - Se implementó la vista navegable `view-team` en la SPA de `index.html`, con tarjetas responsive de los 5 integrantes adaptadas a modo claro y oscuro.
+  - Se rediseñó el `<footer>` con los canales requeridos en el Punto 4 (GMail, Instagram, Facebook, YouTube) y el acceso directo al Formulario de Relevamiento y Feedback Comunitario.
+- **Por qué esta solución:** Garantiza cumplimiento estricto de las pautas 2.2, 2.3, 4 y 9 del documento de consignas de la EFI, ofreciendo una experiencia integral y transparente al usuario.
+- **Archivos tocados:** 
+  - `assets/team/julian.svg`
+  - `assets/team/matias.svg`
+  - `assets/team/santiago.svg`
+  - `assets/team/ignacio.svg`
+  - `assets/team/rodrigo.svg`
+  - `DOCUMENTO_DE_INVESTIGACION.md`
+  - `index.html`
+  - `REPORTE_VERIFICACION_SDD.md`
+- **Checklist DoD:**
+  - Funcionalidad: ✅ (Navegación fluida a la vista de Equipo, enlaces de redes sociales y formulario de feedback funcionales).
+  - Diseño y experiencia: ✅ (Tarjetas de equipo responsive 1/2/3 columnas con avatares SVG nítidos y footer moderno).
+  - Consignas cumplidas: ✅ (Puntos 2, 4 y 9 de la EFI integrados tanto en documentación como en la app web).
+  - Calidad de código: ✅ (Cero frameworks pesados, SVG limpios, accesibilidad en links y contraste preservado).
+
+---
+
+## [2026-10-15] — Calidad Técnica, Sincronización de Estados y Limpieza (Fase 3)
+- **Qué se hizo:** 
+  - Se corrigió el enlace hardcodeado a `/home/julian/...` en `ESTRUCTURA_DEFENSA_ORAL.md` sustituyéndolo por un enlace relativo a `docs/contexto/errores-conocidos.md`.
+  - Se actualizaron todos los estados de riesgos conocidos en `docs/contexto/errores-conocidos.md` de `Previsto` a `Resuelto` (EC-001 a EC-007) documentando la solución exacta implementada.
+  - Se actualizó la sección 6 de `docs/contexto/flujo-de-trabajo.md` reflejando que la investigación oficial está consolidada y completa en `DOCUMENTO_DE_INVESTIGACION.md`.
+  - Se optimizó `animateCounters()` en `app.js` mediante `activeCounterTimers` para limpiar intervalos previos y evitar acumulación de timers concurrentes en transiciones rápidas.
+  - Se eliminó el archivo residual de 276 KB `Proyecto-DonaJusto-master (2).zip` de la raíz del proyecto.
+- **Por qué esta solución:** Erradica inconsistencias documentales internas, previene pérdidas de rendimiento por eventos concurrentes y mantiene el repositorio limpio y portable para cualquier entorno o evaluador.
+- **Archivos tocados:** 
+  - `ESTRUCTURA_DEFENSA_ORAL.md`
+  - `docs/contexto/errores-conocidos.md`
+  - `docs/contexto/flujo-de-trabajo.md`
+  - `app.js`
+  - `REPORTE_VERIFICACION_SDD.md`
+- **Checklist DoD:**
+  - Portabilidad: ✅ (Cero enlaces absolutos rotos entre entornos locales).
+  - Rendimiento: ✅ (Contadores numéricos limpios y sin fugas de timers).
+  - Consistencia documental: ✅ (Estados sincronizados entre código, reporte SDD y errores conocidos).
+  - Limpieza: ✅ (Sin archivos temporales ni zips huérfanos).
+
+---
+
+## [2026-10-15] — Presentación Interactiva y Estructuración de Entrega Final EFI-Equipo (Fase 4)
+- **Qué se hizo:** 
+  - Se diseñó y construyó la presentación web interactiva en `presentacion/index.html` con 10 diapositivas adaptadas al guion de 20 minutos de `ESTRUCTURA_DEFENSA_ORAL.md`, control por teclado y temporizador integrado.
+  - Se creó la carpeta oficial de entrega `EFI-Equipo/` con la estructura exacta exigida por el PDF de la cátedra:
+    - `Sitio_Web.zip` (código fuente limpio: html, css, js, assets, investigación y reporte SDD).
+    - `documentos de contexto y reglas/` (`GEMINI.md`, `.agents/rules/` y los 6 docs de `docs/contexto/`).
+    - `presentación/` (`index.html` y `GUION_DEFENSA_ORAL.md`).
+- **Por qué esta solución:** Completa al 100% todos los requisitos de entrega y defensa oral de la EFI de Programación II 2026 sin dejar cabos sueltos ni dependencias rotas.
+- **Archivos tocados:** 
+  - `presentacion/index.html`
+  - `presentacion/GUION_DEFENSA_ORAL.md`
+  - `EFI-Equipo/Sitio_Web.zip`
+  - `EFI-Equipo/documentos de contexto y reglas/`
+  - `EFI-Equipo/presentación/`
+  - `REPORTE_VERIFICACION_SDD.md`
+- **Checklist DoD:**
+  - Cumplimiento de consignas: ✅ (Partes 1 y 2, seminario Antigravity y entrega final cubiertas al 100%).
+  - Defensa oral preparada: ✅ (Diapositivas listas con temporizador de 20 min).
+  - Empaquetado oficial: ✅ (Estructura de carpetas idéntica a la solicitada por los profesores).
 
 

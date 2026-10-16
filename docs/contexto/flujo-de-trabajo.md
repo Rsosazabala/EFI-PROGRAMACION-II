@@ -73,19 +73,20 @@ Al cerrar cada tarea de 2 o más archivos, agregar una entrada en `REPORTE_VERIF
 ## 6. Entrega EFI — Programación II 2026
 
 ### Parte 1 — Documento de investigación
-El documento en sí no está en este repositorio; esta tabla indica qué material de base hay para cada sección que pide la consigna.
+El documento oficial consolidado se encuentra en la raíz del proyecto: `DOCUMENTO_DE_INVESTIGACION.md`. Cumple los 9 puntos exigidos por la consigna:
 
-| # | Sección que pide la consigna | Qué hay en el repo | Qué falta definir |
-|---|---|---|---|
-| 1 | Resumen de la idea | `README.md` (El problema, Qué resuelve DonaJusto) | Adaptarlo a una versión corta |
-| 2 | Datos de la empresa: nombre, icono de apps y tiendas, logos en distintos formatos, datos principales (domicilio, teléfono, mail), a qué se dedica, si ya tiene sitio o app | Nombre y descripción de DonaJusto | Icono, logos, datos de contacto y si existe un sitio previo |
-| 3 | Requerimientos de software con defensa: framework CSS, hosting y costo, dominio y costo (nic.ar) | ADR-001 (Tailwind) y ADR-002 (SPA, compatible con hosting estático) | Hosting y dominio: elegir, investigar el costo vigente y registrar el ADR |
-| 4 | Social media: Gmail, Facebook, Instagram, canal de YouTube, Google Form de contacto o feedback | — | Todo |
-| 5 | Valor agregado frente a opciones gratuitas o libres | `README.md` (Qué resuelve DonaJusto) | Contrastarlo con alternativas reales |
-| 6 | Alcance de la primera versión (incluido y no incluido) | Incluido: las 3 vistas frontend. No incluido: backend y base de datos (ADR-004, `arquitectura.md`) | Redactarlo con el detalle que pide la consigna |
-| 7 | Detalle de los contenidos (listado de características) | `arquitectura.md`, `glosario.md`, `convenciones.md` | Armar el listado |
-| 8 | Cómo monetizar la app | — | Todo |
-| 9 | Equipo: nombre, cargo, foto y breve descripción | `README.md` (Equipo: nombres y roles) | Foto y descripción de cada integrante |
+| # | Sección de la consigna | Estado en `DOCUMENTO_DE_INVESTIGACION.md` |
+|---|---|---|
+| 1 | Resumen de la idea | ✅ Completo (desacople entre donaciones intuitivas y necesidades reales). |
+| 2 | Datos de la organización, domicilio, teléfono, mail, logotipo SVG y favicon | ✅ Completo (Río Cuarto, +54 358 465-9800, cuenco solidario y brote ámbar en `assets/logo.svg`). |
+| 3 | Requerimientos frontend con defensa técnica (Tailwind CDN, Vercel $0, nic.ar $8.500-$12.000) | ✅ Completo con análisis técnico y justificación. |
+| 4 | Social media (Gmail, Instagram, Facebook, YouTube, Google Form) | ✅ Completo y vinculado en el footer de la aplicación web. |
+| 5 | Valor agregado frente a opciones gratuitas o libres | ✅ Completo con matriz comparativa. |
+| 6 | Alcance v1.0 (incluido frontend SPA y no incluido fase futura) | ✅ Completo y alineado con ADR-002 y ADR-004. |
+| 7 | Detalle de los contenidos y características técnicas | ✅ Completo (vistas, paleta institucional, tipografía Inter/Poppins). |
+| 8 | Estrategia de sostenibilidad y monetización | ✅ Completo (convenios RSE, subsidios, donantes corporativos, 0% comedores). |
+| 9 | Equipo de trabajo (nombre, cargo, foto/avatar y biografía breve) | ✅ Completo con avatares en `assets/team/` y sección web en `index.html`. |
+
 
 ### Parte 2 — Producción
 - Sitio frontend hecho con Antigravity, con framework CSS, responsive (móvil y escritorio), modo claro y oscuro y animaciones: se verifica con la sección 3.

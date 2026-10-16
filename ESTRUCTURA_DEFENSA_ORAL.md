@@ -17,5 +17,6 @@
 
 ### Tips de Preparación para la Defensa
 1. **Practicar con cronómetro:** Ensayar al menos dos veces con reloj visible para no exceder los 20 minutos reglamentarios.
-2. **Demo offline lista:** Como se documentó en [errores-conocidos.md](file:///home/julian/itec/proyecto_donajusto/errores-conocidos.md) (EC-005), verificar la conexión a internet en el aula de defensa para las fuentes y CDN, o tener el navegador con la página precargada.
+2. **Demo offline lista:** Como se documentó en [errores-conocidos.md](docs/contexto/errores-conocidos.md) (EC-005), verificar la conexión a internet en el aula de defensa para las fuentes y CDN, o tener el navegador con la página precargada.
 3. **Modo responsive en vivo:** Usar la herramienta de desarrollador (`F12` o `Ctrl+Shift+M`) para mostrar en vivo cómo la grilla se adapta de 3 columnas a 1 columna en móvil y cómo se comporta el menú hamburguesa.
+

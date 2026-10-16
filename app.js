@@ -307,8 +307,8 @@ function navigateToView(viewId) {
         mobileMenu.classList.add('hidden');
     }
 
-    // Actualizar estilos activos SOLAMENTE en los enlaces del navbar
-    document.querySelectorAll('.nav-link').forEach(navLink => {
+    // Actualizar estilos activos SOLAMENTE en los enlaces del navbar (header)
+    document.querySelectorAll('header .nav-link').forEach(navLink => {
         if (navLink.getAttribute('data-target') === viewId) {
             navLink.classList.add('text-emerald-500', 'font-semibold');
         } else {
@@ -403,12 +403,18 @@ function renderImpactIndicators() {
     `;
 }
 
+let activeCounterTimers = [];
+
 function animateCounters() {
+    activeCounterTimers.forEach(timer => clearInterval(timer));
+    activeCounterTimers = [];
+
     const counters = document.querySelectorAll('.counter-element');
     counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target'), 10);
+        if (isNaN(target)) return;
         let current = 0;
-        const increment = Math.ceil(target / 25);
+        const increment = Math.max(1, Math.ceil(target / 25));
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -418,8 +424,10 @@ function animateCounters() {
                 counter.textContent = current;
             }
         }, 30);
+        activeCounterTimers.push(timer);
     });
 }
+
 
 // ==========================================================================
 // 7. CATÁLOGO: BÚSQUEDA Y FILTRADO EN TIEMPO REAL

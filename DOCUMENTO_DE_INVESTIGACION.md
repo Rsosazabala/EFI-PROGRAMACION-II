@@ -22,10 +22,10 @@ En la actualidad, las donaciones de alimentos suelen organizarse de manera intui
   - **Teléfono de contacto:** +54 (358) 465-9800
   - **Correo electrónico institucional:** contacto.donajusto@gmail.com
 - **Identidad Visual:**
-  - **Icono para tiendas y apps (Favicon / App Icon):** Isotipo minimalista consistente en una mano en contorno geométrico sosteniendo un brote esmeralda (`#10b981`), encerrado en un contenedor cuadrado con esquinas redondeadas en fondo Slate-900 (`#0f172a`). Exportado en formatos estándar: `favicon.ico` (32x32 px), `icon-192.png` y `icon-512.png`.
+  - **Icono para tiendas, apps y favicon (Favicon / App Icon):** Isotipo vectorial consistente en un plato o cuenco solidario blanco que simboliza el sustento y la mesa compartida, coronado por un brote nutricional en ámbar cálido (`#f59e0b`) que evoca vitalidad y esperanza. Todo integrado dentro de un contenedor cuadrado de esquinas redondeadas (*squircle*) con degradé en verde esmeralda institucional (`#10b981` a `#047857`). Implementado en formato vectorial nativo SVG (`assets/logo.svg`), adaptable como Favicon web estándar de alta resolución en cualquier densidad de pantalla.
   - **Logotipo y formatos:**
-    - Isologotipo horizontal: Nombre "DonaJusto" en tipografía Poppins Bold con la palabra "Dona" en Slate-900 / Blanco y "Justo" en Verde Esmeralda, acompañado del isotipo a la izquierda.
-    - Formatos provistos: Vectorial SVG (escalable para pantallas y cartelería), PNG con fondo transparente (alta resolución para web/redes), y versión monocromática de alto contraste.
+    - Isologotipo horizontal: Nombre "DonaJusto" en tipografía Poppins Bold con la palabra "Dona" en Slate-900 (modo claro) / Blanco (modo oscuro) y "Justo" en Verde Esmeralda (`#10b981`), acompañado del isotipo a la izquierda.
+    - Formatos provistos: Vectorial SVG nativo (`assets/logo.svg`) escalable sin pérdida de nitidez para pantallas móviles, monitores de alta densidad y cartelería digital, optimizado con clases de contraste accesible y renderizado directo en la Single Page Application.
 
 ---
 
@@ -133,6 +133,9 @@ DonaJusto es un proyecto con propósito social sin fines de lucro; sin embargo, 
 ---
 
 ## 9. Equipo de Trabajo
+> A los donantes y comedores les brinda confianza y transparencia conocer al equipo técnico detrás del desarrollo de DonaJusto. Cada integrante aporta su especialidad para hacer realidad este proyecto con impacto social local.
+
+### 9.1. Tabla General de Roles
 
 | Integrante | Rol / Cargo | Responsabilidad Principal |
 |---|---|---|
@@ -141,3 +144,31 @@ DonaJusto es un proyecto con propósito social sin fines de lucro; sin embargo, 
 | **Santiago Heredia** | Diseñador UX/UI | Diseño de interfaz visual, definición de paleta de colores, maquetado responsive y accesibilidad visual. |
 | **Ignacio López Ruiz** | Analista de Datos | Modelado de datos de prueba, indicadores de demanda de insumos y métricas de impacto de la red. |
 | **Rodrigo Sosa Zabala** | Responsable de Comunicación y Documentación | Redacción del documento de investigación, estrategia de social media y preparación de la defensa oral. |
+
+### 9.2. Perfil Individual de los Integrantes
+
+#### 1. Julián Altamirano
+- **Cargo:** Líder de Proyecto / Project Manager & UI Architect
+- **Foto / Avatar:** `assets/team/julian.svg`
+- **Breve descripción:** Estudiante avanzado de la Tecnicatura Superior en Desarrollo de Software en ITEC Río Cuarto. Encargado de articular las etapas de planificación y desarrollo, asegurar la calidad del código mediante la metodología SDD y liderar la integración con el ecosistema de agentes Antigravity.
+
+#### 2. Matías Rodríguez
+- **Cargo:** Analista Funcional
+- **Foto / Avatar:** `assets/team/matias.svg`
+- **Breve descripción:** Especializado en análisis de procesos organizacionales y relevamiento de requerimientos. Su foco en el proyecto fue diagnosticar las dinámicas reales de acopio y faltantes en comedores comunitarios para traducirlas en requerimientos funcionales claros.
+
+#### 3. Santiago Heredia
+- **Cargo:** Diseñador UX/UI
+- **Foto / Avatar:** `assets/team/santiago.svg`
+- **Breve descripción:** Apasionado por la accesibilidad web y el diseño visual intuitivo. Responsable de la conceptualización gráfica, paleta de colores inclusiva, microinteracciones y de garantizar que la experiencia sea fluida tanto en dispositivos móviles como en computadoras de escritorio.
+
+#### 4. Ignacio López Ruiz
+- **Cargo:** Analista de Datos y Métricas de Impacto
+- **Foto / Avatar:** `assets/team/ignacio.svg`
+- **Breve descripción:** Con formación en modelado y análisis de datos. Tuvo a su cargo la estructuración de los datos de prueba del inventario, la simulación de stock por movimientos y el diseño algorítmico de los indicadores de demanda crítica de alimentos.
+
+#### 5. Rodrigo Sosa Zabala
+- **Cargo:** Responsable de Comunicación y Documentación
+- **Foto / Avatar:** `assets/team/rodrigo.svg`
+- **Breve descripción:** Enfocado en la comunicación técnica y estratégica del proyecto. Desarrolló el documento integral de investigación, estructuró la presencia en canales sociales y coordinó la narrativa y tiempos del guion para la defensa oral de 20 minutos.
+

@@ -18,8 +18,12 @@ donajusto-sitio/
 ├── index.html
 ├── app.js
 ├── style.css
+├── DOCUMENTO_DE_INVESTIGACION.md
 ├── REPORTE_VERIFICACION_SDD.md
 ├── GEMINI.md
+├── assets/
+│   ├── logo.svg
+│   └── team/
 ├── .agents/
 │   └── rules/
 │       └── antigravity_global_rules.md

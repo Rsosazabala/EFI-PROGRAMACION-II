@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonaJusto - Presentación y Defensa Oral EFI 2026</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: { 500: '#10b981', 600: '#059669', 700: '#047857' },
+                        amber: { 500: '#f59e0b', 600: '#d97706' },
+                        slate: { 850: '#151f32', 900: '#0f172a', 950: '#0b1120' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slide {
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+        .glass-panel {
+            background-color: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between overflow-hidden select-none">
+
+    <!-- Barra Superior: Controles, Slide Counter y Cronómetro de 20 Minutos -->
+    <header class="w-full bg-slate-900/90 border-b border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 flex-shrink-0">
+                <img src="../assets/logo.svg" alt="Logo DonaJusto" class="w-full h-full">
+            </div>
+            <span class="font-heading font-extrabold text-lg text-white">
+                Dona<span class="text-emerald-500">Justo</span>
+            </span>
+            <span class="hidden sm:inline-block text-xs text-slate-400 border-l border-slate-700 pl-3">
+                Defensa EFI • Programación II 2026 • ITEC Río Cuarto
+            </span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <!-- Temporizador de 20 minutos -->
+            <div class="flex items-center gap-2 bg-slate-800/80 px-3.5 py-1.5 rounded-xl border border-slate-700 text-xs font-mono">
+                <span class="text-slate-400">⏱ Tiempo:</span>
+                <span id="timer-display" class="font-bold text-amber-400 text-sm">20:00</span>
+                <button id="timer-toggle-btn" class="ml-1 px-2 py-0.5 rounded bg-slate-700 hover:bg-slate-600 text-[11px] text-white">Iniciar</button>
+                <button id="timer-reset-btn" class="px-2 py-0.5 rounded bg-slate-700 hover:bg-slate-600 text-[11px] text-slate-300">Reset</button>
+            </div>
+
+            <!-- Contador de Slide -->
+            <div class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-xl border border-emerald-500/20">
+                Diapositiva <span id="current-slide-num">1</span> / <span id="total-slides-num">10</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de Diapositivas -->
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-8 max-w-7xl mx-auto w-full relative">
+
+        <!-- Slide 1: Portada Institucional -->
+        <section class="slide active flex-col items-center justify-center text-center space-y-6 max-w-4xl" data-slide="1">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider border border-emerald-500/20">
+                <span>Tecnicatura Superior en Desarrollo de Software • ITEC Río Cuarto</span>
+            </div>
+            <div class="w-24 h-24 my-2">
+                <img src="../assets/logo.svg" alt="Logo DonaJusto" class="w-full h-full drop-shadow-2xl">
+            </div>
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                Dona<span class="text-emerald-500">Justo</span>
+            </h1>
+            <p class="text-lg sm:text-2xl text-slate-300 max-w-2xl font-light">
+                Plataforma comunitaria de vinculación entre donantes y comedores con stock en tiempo real.
+            </p>
+            <div class="glass-panel p-5 rounded-2xl max-w-2xl w-full grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs text-slate-300 border border-slate-800">
+                <div><span class="block font-bold text-white">Julián Altamirano</span><span class="text-[10px] text-emerald-400">Líder / PM</span></div>
+                <div><span class="block font-bold text-white">Matías Rodríguez</span><span class="text-[10px] text-sky-400">Analista Func.</span></div>
+                <div><span class="block font-bold text-white">Santiago Heredia</span><span class="text-[10px] text-purple-400">Diseño UX/UI</span></div>
+                <div><span class="block font-bold text-white">Ignacio López</span><span class="text-[10px] text-amber-400">Datos</span></div>
+                <div class="col-span-2 sm:col-span-1"><span class="block font-bold text-white">Rodrigo Sosa</span><span class="text-[10px] text-teal-400">Doc. y Com.</span></div>
+            </div>
+        </section>
+
+        <!-- Slide 2: El Problema -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="2">
+            <div>
+                <span class="text-xs uppercase font-bold text-red-400 tracking-wider">Diagnóstico y Contexto</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">El Desacople en las Donaciones</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-l-4 border-red-500">
+                    <span class="text-2xl">📦</span>
+                    <h3 class="font-heading text-lg font-bold text-white">Donaciones "A Ciegas"</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Quienes quieren colaborar donan lo que tienen a mano sin conocer la necesidad real del comedor, generando acumulación innecesaria de fideos o polenta.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-l-4 border-amber-500">
+                    <span class="text-2xl">📉</span>
+                    <h3 class="font-heading text-lg font-bold text-white">Faltantes Críticos Ocultos</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Insumos básicos de alto valor nutricional (leche en polvo, aceite, proteínas, frescos) sufren escasez severa sin que la comunidad se entere a tiempo.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-l-4 border-slate-500">
+                    <span class="text-2xl">📝</span>
+                    <h3 class="font-heading text-lg font-bold text-white">Gestión Manual Informal</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Los registros de stock se llevan en cuadernos o grupos de WhatsApp dispersos, sin trazabilidad ni métricas confiables de personas asistidas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Qué Resuelve DonaJusto -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="3">
+            <div>
+                <span class="text-xs uppercase font-bold text-emerald-400 tracking-wider">Propuesta de Valor</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Qué Resuelve DonaJusto</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-emerald-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">1</div>
+                    <h3 class="font-heading text-lg font-bold text-white">Catálogo de Stock en Tiempo Real</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Visibiliza qué necesita cada comedor hoy y su capacidad operativa mediante barras visuales de inventario accesibles y badges de urgencia.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-teal-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold">2</div>
+                    <h3 class="font-heading text-lg font-bold text-white">Justicia Distributiva</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Orienta al donante hacia los insumos con demanda crítica más alta, logrando que cada kilo donado tenga el máximo impacto alimentario.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-amber-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">3</div>
+                    <h3 class="font-heading text-lg font-bold text-white">Vinculación Directa sin Burocracia</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Formulario ágil de coordinación directa entre el donante y los referentes del comedor. Cero intermediarios ni comisiones monetarias.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border border-sky-500/30">
+                    <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">4</div>
+                    <h3 class="font-heading text-lg font-bold text-white">Indicadores de Red Comunitarios</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Métricas consolidadas de impacto: conteo real de personas asistidas (790 personas), comedores adheridos e insumos más usados.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Investigación y Decisiones Técnicas -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="4">
+            <div>
+                <span class="text-xs uppercase font-bold text-sky-400 tracking-wider">Parte 1: Investigación</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Requerimientos Técnicos y Defensa (ADR)</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-bold uppercase text-emerald-400">Framework CSS</span>
+                    <h3 class="font-heading text-lg font-bold text-white">TailwindCSS v3 (CDN)</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        • Desarrollo ágil sin compiladores pesados de Node.js en la entrega estática.<br>
+                        • Soporte nativo para modo claro y oscuro (`darkMode: 'class'`).<br>
+                        • Diseño mobile-first con breakpoints limpios (`sm:`, `md:`, `lg:`).
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-bold uppercase text-sky-400">Hosting y Despliegue</span>
+                    <h3 class="font-heading text-lg font-bold text-white">Vercel / GitHub Pages</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        • Costo inicial: <strong>USD $0 / mes</strong> (Plan Hobby gratuito).<br>
+                        • CDN global de alta disponibilidad y SSL automático Let's Encrypt.<br>
+                        • Despliegue continuo instantáneo en cada commit.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <span class="text-xs font-bold uppercase text-amber-400">Identidad Web</span>
+                    <h3 class="font-heading text-lg font-bold text-white">Dominio nic.ar</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        • Dominio propuesto: <code>donajusto.org.ar</code>.<br>
+                        • Arancel anual oficial: <strong>$8.500 a $12.000 ARS</strong>.<br>
+                        • Aporta legitimidad institucional y pertenencia geográfica argentina.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Identidad Visual y Social Media -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="5">
+            <div>
+                <span class="text-xs uppercase font-bold text-purple-400 tracking-wider">Diseño y Comunicación</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Identidad de Marca y Canales Sociales</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <h3 class="font-heading text-lg font-bold text-white flex items-center gap-2">
+                        <img src="../assets/logo.svg" alt="Icono" class="w-6 h-6">
+                        <span>Isotipo y Significado Visual</span>
+                    </h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        • <strong>Cuenco solidario blanco:</strong> Simboliza el alimento compartido y la dignidad comunitaria.<br>
+                        • <strong>Brote nutricional ámbar:</strong> Vitalidad, crecimiento y esperanza.<br>
+                        • <strong>Squircle esmeralda:</strong> Frescura, transparencia y tecnología accesible.<br>
+                        • <strong>Formatos:</strong> SVG vectorial escalable y Favicon estándar integrado.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <h3 class="font-heading text-lg font-bold text-white">Canales Requeridos (Punto 4)</h3>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li>📧 <strong>GMail:</strong> <code>contacto.donajusto@gmail.com</code></li>
+                        <li>📸 <strong>Instagram:</strong> <code>@donajusto.arg</code> (historias del día)</li>
+                        <li>👥 <strong>Facebook:</strong> <code>facebook.com/donajusto.arg</code> (centros vecinales)</li>
+                        <li>🎥 <strong>YouTube:</strong> <code>@DonaJustoOficial</code> (testimonios)</li>
+                        <li>📋 <strong>Google Form:</strong> Relevamiento barrial y feedback de donantes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Metodología Antigravity y Reglas -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="6">
+            <div>
+                <span class="text-xs uppercase font-bold text-emerald-400 tracking-wider">Ingeniería y Metodología</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Integración con Seminario Antigravity</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-t-4 border-emerald-500">
+                    <h3 class="font-heading text-base font-bold text-white">1. Conector Maestro</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        <code>GEMINI.md</code> articula las reglas globales activas (<code>.agents/rules/</code>) y el Master Context en <code>docs/contexto/</code>.
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-t-4 border-sky-500">
+                    <h3 class="font-heading text-base font-bold text-white">2. Contexto Vivo (6 Docs)</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Arquitectura, Convenciones, Decisiones (ADR), Glosario, Flujo de Trabajo y Errores Conocidos (EC-001 a EC-007 resueltos).
+                    </p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3 border-t-4 border-purple-500">
+                    <h3 class="font-heading text-base font-bold text-white">3. Ciclo SDD y DoD</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Trazabilidad total en <code>REPORTE_VERIFICACION_SDD.md</code>. Cero errores en consola, 4 estados UI y mobile-first garantizado.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Demo en Vivo del Frontend -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="7">
+            <div>
+                <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Parte 2: Producción</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Estructura del Frontend (SPA)</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <span class="text-2xl">🏠</span>
+                    <h4 class="font-heading text-sm font-bold text-white">1. Inicio</h4>
+                    <p class="text-[11px] text-slate-300">Hero asimétrico, tarjeta de urgencia destacada, proceso en 3 pasos y contadores numéricos animados.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <span class="text-2xl">🍲</span>
+                    <h4 class="font-heading text-sm font-bold text-white">2. Catálogo</h4>
+                    <p class="text-[11px] text-slate-300">Buscador en tiempo real por alimento/barrio, chips de filtro rápido y modal interactivo con barras <code>&lt;progress&gt;</code>.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <span class="text-2xl">👥</span>
+                    <h4 class="font-heading text-sm font-bold text-white">3. Equipo</h4>
+                    <p class="text-[11px] text-slate-300">Sección dedicada con las fichas de los 5 integrantes, avatares vectoriales y rol técnico en la EFI.</p>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl text-center space-y-2">
+                    <span class="text-2xl">🤝</span>
+                    <h4 class="font-heading text-sm font-bold text-white">4. Donar</h4>
+                    <p class="text-[11px] text-slate-300">Formulario en 2 columnas con pautas éticas, preselección desde modal y confirmación vía Toast.</p>
+                </div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl flex items-center justify-between text-xs text-slate-300">
+                <span>⚡ Navegación client-side fluida sin recargas • Modo claro y oscuro con persistencia</span>
+                <span class="text-emerald-400 font-bold">100% Frontend Puro</span>
+            </div>
+        </section>
+
+        <!-- Slide 8: Equipo de Desarrollo -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="8">
+            <div>
+                <span class="text-xs uppercase font-bold text-teal-400 tracking-wider">Consigna Punto 9</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Equipo de Desarrollo (ITEC)</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-5 gap-4">
+                <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
+                    <img src="../assets/team/julian.svg" alt="Julián" class="w-16 h-16 mx-auto rounded-full">
+                    <h4 class="font-bold text-xs text-white">Julián Altamirano</h4>
+                    <span class="block text-[10px] text-emerald-400">Líder / PM</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
+                    <img src="../assets/team/matias.svg" alt="Matías" class="w-16 h-16 mx-auto rounded-full">
+                    <h4 class="font-bold text-xs text-white">Matías Rodríguez</h4>
+                    <span class="block text-[10px] text-sky-400">Analista Func.</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
+                    <img src="../assets/team/santiago.svg" alt="Santiago" class="w-16 h-16 mx-auto rounded-full">
+                    <h4 class="font-bold text-xs text-white">Santiago Heredia</h4>
+                    <span class="block text-[10px] text-purple-400">Diseñador UX/UI</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
+                    <img src="../assets/team/ignacio.svg" alt="Ignacio" class="w-16 h-16 mx-auto rounded-full">
+                    <h4 class="font-bold text-xs text-white">Ignacio López</h4>
+                    <span class="block text-[10px] text-amber-400">Analista Datos</span>
+                </div>
+                <div class="glass-panel p-4 rounded-2xl text-center space-y-2">
+                    <img src="../assets/team/rodrigo.svg" alt="Rodrigo" class="w-16 h-16 mx-auto rounded-full">
+                    <h4 class="font-bold text-xs text-white">Rodrigo Sosa</h4>
+                    <span class="block text-[10px] text-teal-400">Comunicación</span>
+                </div>
+            </div>
+            <p class="text-xs text-slate-400 text-center">
+                Estudiantes de la Tecnicatura Superior en Desarrollo de Software • Cátedra de Programación II 2026
+            </p>
+        </section>
+
+        <!-- Slide 9: Monetización y Fase Futura -->
+        <section class="slide flex-col space-y-6 max-w-5xl w-full" data-slide="9">
+            <div>
+                <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Sostenibilidad y Visión</span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mt-1">Sostenibilidad y Hoja de Ruta</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <h3 class="font-heading text-base font-bold text-amber-400">Sostenibilidad Ética (Sin fines de lucro)</h3>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li>🌱 <strong>Convenios de RSE:</strong> Alianzas con supermercados y mayoristas de alimentos con reporte certificado de impacto.</li>
+                        <li>🏛 <strong>Fondos de Innovación Social:</strong> Subsidios municipales y provinciales de digitalización barrial.</li>
+                        <li>🤝 <strong>100% Gratuito para los comedores:</strong> Cero comisiones o costos de uso para los espacios comunitarios.</li>
+                    </ul>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl space-y-3">
+                    <h3 class="font-heading text-base font-bold text-emerald-400">Fase Futura (Evolución de Producto)</h3>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li>🔐 <strong>Módulo de Autenticación:</strong> Roles para donantes particulares, comedores y administradores.</li>
+                        <li>📊 <strong>Backend Modular y Base de Datos:</strong> Registro transaccional de stock por movimientos (entradas y salidas).</li>
+                        <li>🗺 <strong>Geolocalización GPS:</strong> Mapa interactivo con radios de cercanía por barrio.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Cierre y Preguntas -->
+        <section class="slide flex-col items-center justify-center text-center space-y-6 max-w-3xl" data-slide="10">
+            <div class="w-20 h-20">
+                <img src="../assets/logo.svg" alt="Logo DonaJusto" class="w-full h-full">
+            </div>
+            <h2 class="font-heading text-4xl sm:text-5xl font-extrabold text-white">
+                ¡Muchas Gracias!
+            </h2>
+            <p class="text-base sm:text-lg text-slate-300">
+                DonaJusto: Conectando la solidaridad con las necesidades reales.
+            </p>
+            <div class="glass-panel p-6 rounded-2xl w-full text-xs text-slate-300 space-y-2">
+                <p class="font-semibold text-emerald-400 text-sm">Espacio para Preguntas de la Mesa Examinadora</p>
+                <p>Tecnicatura Superior en Desarrollo de Software • ITEC Río Cuarto • 2026</p>
+            </div>
+            <button onclick="goToSlide(1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-colors">
+                ↺ Volver a la portada
+            </button>
+        </section>
+
+    </main>
+
+    <!-- Barra Inferior de Navegación de Diapositivas -->
+    <footer class="w-full bg-slate-900/90 border-t border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+        <div class="text-xs text-slate-400 hidden sm:block">
+            Usa las flechas <kbd class="px-2 py-0.5 bg-slate-800 rounded border border-slate-700 text-slate-200">←</kbd> y <kbd class="px-2 py-0.5 bg-slate-800 rounded border border-slate-700 text-slate-200">→</kbd> o la barra espaciadora
+        </div>
+
+        <div class="flex items-center gap-3 mx-auto sm:mx-0">
+            <button id="prev-btn" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold transition-colors flex items-center gap-1 min-h-[40px]">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Anterior</span>
+            </button>
+            <button id="next-btn" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold transition-colors flex items-center gap-1 min-h-[40px]">
+                <span>Siguiente</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Script de Control de Diapositivas y Temporizador -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        const slides = document.querySelectorAll('.slide');
+        const currentSlideNum = document.getElementById('current-slide-num');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function updateSlide() {
+            slides.forEach(s => s.classList.remove('active'));
+            const activeSlide = document.querySelector(`.slide[data-slide="${currentSlide}"]`);
+            if (activeSlide) activeSlide.classList.add('active');
+            if (currentSlideNum) currentSlideNum.textContent = currentSlide;
+
+            if (prevBtn) prevBtn.disabled = (currentSlide === 1);
+            if (nextBtn) {
+                if (currentSlide === totalSlides) {
+                    nextBtn.innerHTML = '<span>Finalizar</span>';
+                } else {
+                    nextBtn.innerHTML = '<span>Siguiente</span><svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>';
+                }
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function goToSlide(num) {
+            currentSlide = num;
+            updateSlide();
+        }
+
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Temporizador de 20 minutos (1200 segundos)
+        let totalSeconds = 20 * 60;
+        let timerRunning = false;
+        let timerInterval = null;
+
+        const timerDisplay = document.getElementById('timer-display');
+        const timerToggleBtn = document.getElementById('timer-toggle-btn');
+        const timerResetBtn = document.getElementById('timer-reset-btn');
+
+        function formatTimer(seconds) {
+            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        function toggleTimer() {
+            if (!timerRunning) {
+                timerRunning = true;
+                timerToggleBtn.textContent = 'Pausar';
+                timerInterval = setInterval(() => {
+                    if (totalSeconds > 0) {
+                        totalSeconds--;
+                        timerDisplay.textContent = formatTimer(totalSeconds);
+                        if (totalSeconds <= 180) { // Menos de 3 min
+                            timerDisplay.classList.remove('text-amber-400');
+                            timerDisplay.classList.add('text-red-400', 'animate-pulse');
+                        }
+                    } else {
+                        clearInterval(timerInterval);
+                        timerRunning = false;
+                        timerToggleBtn.textContent = 'Fin';
+                    }
+                }, 1000);
+            } else {
+                timerRunning = false;
+                timerToggleBtn.textContent = 'Reanudar';
+                clearInterval(timerInterval);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            totalSeconds = 20 * 60;
+            timerDisplay.textContent = formatTimer(totalSeconds);
+            timerDisplay.classList.remove('text-red-400', 'animate-pulse');
+            timerDisplay.classList.add('text-amber-400');
+            timerToggleBtn.textContent = 'Iniciar';
+        }
+
+        if (timerToggleBtn) timerToggleBtn.addEventListener('click', toggleTimer);
+        if (timerResetBtn) timerResetBtn.addEventListener('click', resetTimer);
+
+        updateSlide();
+    </script>
+</body>
+</html>

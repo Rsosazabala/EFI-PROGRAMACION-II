@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="grad-matias" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="64" fill="url(#grad-matias)"/>
+  <circle cx="64" cy="48" r="24" fill="#ffffff" opacity="0.95"/>
+  <path d="M28 108 C28 84 44 76 64 76 C84 76 100 84 100 108 Z" fill="#ffffff" opacity="0.95"/>
+  <circle cx="64" cy="48" r="20" fill="#e2e8f0"/>
+  <text x="64" y="55" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#0369a1" text-anchor="middle">MR</text>
+</svg>

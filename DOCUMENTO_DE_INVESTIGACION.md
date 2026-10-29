@@ -22,10 +22,15 @@ En la actualidad, las donaciones de alimentos suelen organizarse de manera intui
   - **Teléfono de contacto:** +54 (358) 465-9800
   - **Correo electrónico institucional:** contacto.donajusto@gmail.com
 - **Identidad Visual:**
-  - **Icono para tiendas, apps y favicon (Favicon / App Icon):** Isotipo vectorial consistente en un plato o cuenco solidario blanco que simboliza el sustento y la mesa compartida, coronado por un brote nutricional en ámbar cálido (`#f59e0b`) que evoca vitalidad y esperanza. Todo integrado dentro de un contenedor cuadrado de esquinas redondeadas (*squircle*) con degradé en verde esmeralda institucional (`#10b981` a `#047857`). Implementado en formato vectorial nativo SVG (`assets/logo.svg`), adaptable como Favicon web estándar de alta resolución en cualquier densidad de pantalla.
+  - **Icono para tiendas, apps y favicon (Favicon / App Icon):** Isotipo "Pin del comedor": un pin de mapa en degradé verde esmeralda institucional (`#10b981` a `#047857`) que contiene un plato servido, del que sube un corazón ámbar (`#f59e0b`) en lugar de vapor. El pin expresa la idea central de la plataforma: mostrar dónde está cada comedor y qué necesita; el plato y el corazón hablan del alimento compartido y de la solidaridad. Para tiendas de apps se usa una versión con fondo esmeralda a sangre y el pin en blanco (`assets/brand/icono-app.svg`, exportado en PNG de 1024, 512, 192 y 180 px).
   - **Logotipo y formatos:**
-    - Isologotipo horizontal: Nombre "DonaJusto" en tipografía Poppins Bold con la palabra "Dona" en Slate-900 (modo claro) / Blanco (modo oscuro) y "Justo" en Verde Esmeralda (`#10b981`), acompañado del isotipo a la izquierda.
-    - Formatos provistos: Vectorial SVG nativo (`assets/logo.svg`) escalable sin pérdida de nitidez para pantallas móviles, monitores de alta densidad y cartelería digital, optimizado con clases de contraste accesible y renderizado directo en la Single Page Application.
+    - Isologotipo horizontal: isotipo a la izquierda y el nombre "DonaJusto" en Poppins ExtraBold, con "Dona" en Slate-900 y "Justo" en Verde Esmeralda (`#10b981`). El texto está convertido a trazos para que se vea igual aunque la fuente no esté instalada.
+    - Formatos provistos (carpeta `assets/brand/`):
+      - Isotipo color, monocromo negro y monocromo blanco (`isotipo.svg`, `isotipo-negro.svg`, `isotipo-blanco.svg`).
+      - Logo horizontal para fondo claro, para fondo oscuro y monocromo (`logo-horizontal*.svg`).
+      - Logo vertical para fondo claro y oscuro (`logo-vertical*.svg`).
+      - Ícono de app cuadrado y redondeado (`icono-app.svg`, `icono-app-redondeado.svg`).
+      - Favicon en SVG (`assets/logo.svg`), PNG de 16, 32 y 48 px y `favicon.ico`; `apple-touch-icon` y manifiesto web (`site.webmanifest`) para instalar el sitio como app.
 
 ---
 

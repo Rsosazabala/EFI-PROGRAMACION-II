@@ -78,7 +78,7 @@ El documento oficial consolidado se encuentra en la raíz del proyecto: `DOCUMEN
 | # | Sección de la consigna | Estado en `DOCUMENTO_DE_INVESTIGACION.md` |
 |---|---|---|
 | 1 | Resumen de la idea | ✅ Completo (desacople entre donaciones intuitivas y necesidades reales). |
-| 2 | Datos de la organización, domicilio, teléfono, mail, logotipo SVG y favicon | ✅ Completo (Río Cuarto, +54 358 465-9800, cuenco solidario y brote ámbar en `assets/logo.svg`). |
+| 2 | Datos de la organización, domicilio, teléfono, mail, logotipo SVG y favicon | ✅ Completo (Río Cuarto, +54 358 465-9800, isotipo "Pin del comedor" en `assets/logo.svg` y kit de formatos en `assets/brand/`). |
 | 3 | Requerimientos frontend con defensa técnica (Tailwind CDN, Vercel $0, nic.ar $8.500-$12.000) | ✅ Completo con análisis técnico y justificación. |
 | 4 | Social media (Gmail, Instagram, Facebook, YouTube, Google Form) | ✅ Completo y vinculado en el footer de la aplicación web. |
 | 5 | Valor agregado frente a opciones gratuitas o libres | ✅ Completo con matriz comparativa. |

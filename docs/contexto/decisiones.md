@@ -27,3 +27,10 @@
 - **Contexto:** la consigna de la EFI pide solo frontend, con datos de prueba completos.
 - **Decisión:** todos los datos (comedores, necesidades, stock, indicadores) viven en un array de JavaScript dentro de `app.js`.
 - **Consecuencias:** el sitio funciona 100% offline/estático; conectar un backend real queda para una fase posterior del proyecto (ver `README.md`).
+
+### [ADR-005] · [2026-10-29] — Rediseño visual "Cálido de barrio"
+- **Estado:** Aprobado
+- **Contexto:** el diseño anterior ("tech modern") usaba glassmorphism, fondo de puntos, gradientes azul-violeta y tarjetas blancas genéricas. Para la entrega EFI se priorizó un lenguaje visual más cercano al barrio y a los comedores comunitarios: menos frío, más humano.
+- **Decisión:** reemplazar todo el esquema visual por "Cálido de barrio": franja de marca `bg-emerald-900`, fondo de página `crema (#fbfaf6)`, componente VALE (borde troquelado punteado con semicírculos laterales), cinta animada de faltantes, y paleta reducida a esmeralda + ámbar. Se eliminaron: dot-pattern, blob gradients, glassmorphism, avatares con gradientes azules/violetas. TailwindCSS v3 y la arquitectura SPA no cambian.
+- **Consecuencias:** mayor coherencia con la identidad del proyecto; los vales son el componente central tanto en el catálogo como en el formulario de donación. El diseño es reproducible pixel-a-pixel a partir de la maqueta C ("Cálido de barrio") y el prompt en `prompt-frontend-opcion-c.md`.
+

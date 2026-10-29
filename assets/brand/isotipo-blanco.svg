@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="DonaJusto">
+<title>DonaJusto — isotipo blanco</title>
+<defs><mask id="bm" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><circle cx="32" cy="26" r="15" fill="#000"/></mask></defs>
+<path d="M32 3 C19.3 3 9 13.3 9 26 C9 42.5 32 61 32 61 C32 61 55 42.5 55 26 C55 13.3 44.7 3 32 3 Z" fill="#ffffff" mask="url(#bm)"/>
+<rect x="20.5" y="25" width="23" height="3.2" rx="1.6" fill="#ffffff"/>
+<path d="M22.5 27.5 H41.5 A9.5 8 0 0 1 22.5 27.5 Z" fill="#ffffff"/>
+<path d="M32 22.5 C27.5 19.3 28.5 14.2 32 16.4 C35.5 14.2 36.5 19.3 32 22.5 Z" fill="#ffffff"/>
+</svg>

@@ -55,7 +55,7 @@ Registro continuo del cumplimiento del Definition of Done (DoD) y la metodologí
 ## [2026-10-09] — Corrección de Estabilidad del Logo de Marca e Iconografía Vectorial Profesional
 - **Qué se hizo:** 
   - Se identificó y resolvió la causa por la cual el texto del logo "Dona" cambiaba a verde en Inicio y volvía a color base en las otras vistas: el contenedor del logo compartía la clase `.nav-link`, provocando que el script de enrutamiento le aplicara la clase activa de enlace. Se desacopló el botón de marca (`#brand-logo`), fijando su tipografía (`text-slate-900 dark:text-white` para "Dona" y `text-emerald-500` para "Justo").
-  - Se diseñó un logotipo vectorial SVG personalizado para DonaJusto (plato/cuenco solidario con brote nutricional en ámbar sobre fondo esmeralda) disponible como asset en `assets/logo.svg` e integrado inline.
+  - Se diseñó un logotipo vectorial SVG personalizado para DonaJusto ("Pin del comedor": pin de mapa esmeralda con un plato y un corazón ámbar) disponible en `assets/logo.svg`, con el kit completo de formatos en `assets/brand/` e integrado inline.
   - Se eliminaron por completo todos los emojis informales del sitio (🌱, 🌙, ☀️, 🔍, 🔥, 🍲, 🥛, 👥, 📍, 📦, ⚠️, etc.) y se sustituyeron por un set homogéneo de iconos vectoriales SVG limpios y accesibles.
 - **Por qué esta solución:** Proporciona un acabado visual profesional de nivel de producto comercial, erradica comportamientos visuales erráticos en la navegación y garantiza renderizado nítido en cualquier resolución.
 - **Archivos tocados:** 

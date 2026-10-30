@@ -289,6 +289,171 @@
             </div>
         </section>
 
+                <!-- ==================================================================
+             VISTA 5: POSTULAR UN COMEDOR / MERENDERO
+             ================================================================== -->
+        <section id="view-apply" class="view-section hidden">
+            <div class="bg-emerald-900 dark:bg-emerald-950">
+                <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14 flex flex-col gap-2">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-amber-300">Sumate a la red</span>
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl tracking-tight text-white">Postulá tu comedor o merendero</h1>
+                    <p class="text-emerald-100/80 leading-relaxed max-w-2xl">Dejanos los datos del espacio y de contacto. El equipo los revisa y, si cumple los requisitos, lo suma al catálogo.</p>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12 grid lg:grid-cols-[1fr_1.3fr] gap-8 items-start">
+                <div class="flex flex-col gap-6">
+                    <div class="rounded-2xl bg-emerald-900 dark:bg-emerald-950 text-emerald-50 p-6 sm:p-7 flex flex-col gap-4">
+                        <h2 class="font-heading font-extrabold text-xl text-white">Qué revisamos antes de aprobar</h2>
+                        <!-- EDITAR: requisitos de ejemplo. Reemplazalos por los que defina el equipo. -->
+                        <ul class="flex flex-col gap-3 text-sm leading-relaxed">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Está en Río Cuarto:</strong> el espacio funciona dentro de la ciudad.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Funciona con regularidad:</strong> tiene días y horarios de atención definidos.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Es gratuito:</strong> entrega alimentos sin cobrar y sin fines de lucro.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Tiene un responsable:</strong> alguien con quien podamos hablar para verificar los datos.</span></li>
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50 dark:bg-amber-500/10 p-5 flex flex-col gap-1">
+                        <h3 class="font-bold text-amber-800 dark:text-amber-300">Cómo sigue</h3>
+                        <p class="text-sm text-amber-900/80 dark:text-amber-200/80 leading-relaxed">Un integrante del equipo te contacta para verificar los datos antes de publicar el espacio en el catálogo.</p>
+                    </div>
+                </div>
+
+                <div id="apply-container">
+                    <!-- Formulario -->
+                    <div id="apply-form-card" class="vale relative rounded-2xl bg-white dark:bg-slate-800 border-2 border-dashed border-emerald-400/70 p-6 flex flex-col gap-5">
+                        <span class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <span class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <div class="flex justify-between text-[11px] font-bold uppercase tracking-widest">
+                            <span class="text-emerald-600 dark:text-emerald-400">Tu espacio</span>
+                            <span class="text-slate-400">Vale de postulación</span>
+                        </div>
+
+                        <form id="apply-form" class="space-y-6" novalidate>
+                            <fieldset class="min-w-0 space-y-4">
+                                <legend class="mb-1 text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Datos del espacio</legend>
+                                <div>
+                                    <label for="apply-space-name" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Nombre del espacio</label>
+                                    <input type="text" id="apply-space-name" maxlength="80" placeholder="Ej: Merendero Estrella del Barrio" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                    <p id="apply-space-name-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                </div>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="apply-type" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Tipo de espacio</label>
+                                        <select id="apply-type" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                            <option value="">Elegí una opción...</option>
+                                            <option value="Comedor">Comedor</option>
+                                            <option value="Merendero">Merendero</option>
+                                            <option value="Comedor y merendero">Comedor y merendero</option>
+                                        </select>
+                                        <p id="apply-type-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                    <div>
+                                        <label for="apply-barrio" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Barrio</label>
+                                        <input type="text" id="apply-barrio" maxlength="60" placeholder="Ej: Banda Norte" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                        <p id="apply-barrio-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="apply-address" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Dirección o referencia</label>
+                                    <input type="text" id="apply-address" maxlength="120" placeholder="Ej: Calle Falsa 123, esquina con pasaje 4" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                    <p id="apply-address-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                </div>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="apply-people" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Personas que asisten por día</label>
+                                        <input type="number" id="apply-people" min="1" max="2000" inputmode="numeric" placeholder="Ej: 40" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                        <p id="apply-people-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                    <div>
+                                        <label for="apply-age" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">¿Hace cuánto funciona?</label>
+                                        <select id="apply-age" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                            <option value="">Elegí una opción...</option>
+                                            <option value="Menos de 6 meses">Menos de 6 meses</option>
+                                            <option value="Entre 6 meses y 1 año">Entre 6 meses y 1 año</option>
+                                            <option value="Entre 1 y 3 años">Entre 1 y 3 años</option>
+                                            <option value="Más de 3 años">Más de 3 años</option>
+                                        </select>
+                                        <p id="apply-age-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="apply-schedule" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Días y horarios de atención</label>
+                                    <input type="text" id="apply-schedule" maxlength="120" placeholder="Ej: Lunes a viernes, de 12 a 14 hs" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                    <p id="apply-schedule-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                </div>
+                                <div>
+                                    <label for="apply-description" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Contanos sobre el espacio y qué necesitan</label>
+                                    <textarea id="apply-description" rows="3" maxlength="500" placeholder="Ej: Preparamos el almuerzo y la merienda. Nos faltan fideos, aceite y leche." class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors resize-none"></textarea>
+                                    <p id="apply-description-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="min-w-0 space-y-4">
+                                <legend class="mb-1 text-[11px] font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Datos de contacto</legend>
+                                <div>
+                                    <label for="apply-contact-name" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Responsable (nombre y apellido)</label>
+                                    <input type="text" id="apply-contact-name" maxlength="80" autocomplete="name" placeholder="Ej: Laura Pérez" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                    <p id="apply-contact-name-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                </div>
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="apply-phone" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">WhatsApp o teléfono</label>
+                                        <input type="tel" id="apply-phone" maxlength="30" autocomplete="tel" placeholder="Ej: 358 412-3456" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                        <p id="apply-phone-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                    <div>
+                                        <label for="apply-email" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Email <span class="font-normal text-slate-500 dark:text-slate-400">(opcional)</span></label>
+                                        <input type="email" id="apply-email" maxlength="80" autocomplete="email" placeholder="Ej: laura@email.com" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                        <p id="apply-email-error" class="hidden text-sm text-red-600 dark:text-red-400 mt-1"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="apply-reference" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Organización o referencia que los avala <span class="font-normal text-slate-500 dark:text-slate-400">(opcional)</span></label>
+                                    <input type="text" id="apply-reference" maxlength="120" placeholder="Ej: Centro vecinal, parroquia, ONG, club" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                </div>
+                            </fieldset>
+
+                            <div class="space-y-1">
+                                <div class="flex items-start gap-3">
+                                    <input type="checkbox" id="apply-free" class="mt-3.5 w-5 h-5 flex-shrink-0 accent-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2">
+                                    <label for="apply-free" class="py-3 text-sm leading-relaxed text-slate-700 dark:text-slate-200 cursor-pointer">Declaro que el espacio entrega alimentos de forma gratuita y sin fines de lucro.</label>
+                                </div>
+                                <p id="apply-free-error" class="hidden text-sm text-red-600 dark:text-red-400"></p>
+                                <div class="flex items-start gap-3">
+                                    <input type="checkbox" id="apply-consent" class="mt-3.5 w-5 h-5 flex-shrink-0 accent-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2">
+                                    <label for="apply-consent" class="py-3 text-sm leading-relaxed text-slate-700 dark:text-slate-200 cursor-pointer">Acepto que el equipo de DonaJusto me contacte para verificar estos datos.</label>
+                                </div>
+                                <p id="apply-consent-error" class="hidden text-sm text-red-600 dark:text-red-400"></p>
+                            </div>
+
+                            <div class="space-y-3">
+                                <button type="submit" id="apply-submit-btn" class="rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold w-full min-h-[48px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                                    <span id="apply-submit-label">Enviar postulación →</span>
+                                </button>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 text-center leading-relaxed">Al enviar se abre tu app de correo con la postulación lista. Solo tenés que tocar «Enviar».</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Confirmación (oculta hasta que se envía) -->
+                    <div id="apply-success" tabindex="-1" class="hidden vale relative rounded-2xl bg-white dark:bg-slate-800 border-2 border-dashed border-emerald-400/70 p-8 flex flex-col gap-4 text-center focus:outline-none">
+                        <span class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <span class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <div class="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center mx-auto">
+                            <svg class="w-7 h-7 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h2 class="font-heading font-extrabold text-2xl text-slate-900 dark:text-white">¡Último paso!</h2>
+                        <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Se abrió tu app de correo con la postulación de <strong id="apply-success-name" class="text-slate-900 dark:text-white"></strong> lista para enviar. Tocá «Enviar» para que nos llegue.</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">¿No se abrió? Escribinos a <a href="mailto:contacto.donajusto@gmail.com" class="font-semibold text-emerald-700 dark:text-emerald-400 underline">contacto.donajusto@gmail.com</a> con los datos del espacio.</p>
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-2">
+                            <button type="button" id="apply-reset-btn" class="rounded-full bg-emerald-900 force-text-white font-bold px-6 py-3 min-h-[44px] hover:bg-emerald-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2">Postular otro espacio</button>
+                            <button type="button" data-target="view-home" class="rounded-full border border-emerald-700 dark:border-emerald-500 text-emerald-800 dark:text-emerald-300 font-bold px-6 py-3 min-h-[44px] hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2">Volver al inicio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- ======================================================================
@@ -315,12 +480,12 @@
                     </ul>
                 </div>
                 <div class="flex flex-col gap-3">
-                    <h2 class="text-[11px] font-bold uppercase tracking-widest text-white">¿Tenés un comedor?</h2>
-                    <p class="text-sm leading-relaxed">Completá el formulario de relevamiento para sumarte a la red.</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-donajusto-feedback/viewform" target="_blank" rel="noopener noreferrer" class="self-start inline-flex items-center gap-2 rounded-full border border-amber-400 text-amber-300 px-5 py-2.5 min-h-[44px] text-sm font-semibold hover:bg-amber-400 hover:text-emerald-950 transition-colors">
-                        Formulario de relevamiento
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    </a>
+                        <h2 class="text-[11px] font-bold uppercase tracking-widest text-white">¿Tenés un comedor?</h2>
+                        <p class="text-sm leading-relaxed">Completá el formulario de relevamiento para sumarte a la red.</p>
+                        <button data-target="view-apply" class="self-start inline-flex items-center gap-2 rounded-full border border-amber-400 text-amber-300 px-5 py-2.5 min-h-[44px] text-sm font-semibold hover:bg-amber-400 hover:text-emerald-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-950">
+                            Formulario de relevamiento
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
                 </div>
             </div>
             <div class="border-t border-emerald-800 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-emerald-100/60">

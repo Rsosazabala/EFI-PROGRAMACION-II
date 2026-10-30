@@ -246,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateFormComedoresSelect();
     initModal();
     initForm();
+    initApplyForm();
     // Animate counters on first load (home view is visible)
     animateCounters();
 });
@@ -945,4 +946,148 @@ function showToast(message) {
         toast.classList.remove('translate-y-0', 'opacity-100');
         toast.classList.add('translate-y-[150%]', 'opacity-0');
     }, 3000);
+}
+
+
+// ==========================================================================
+// 15. POSTULACIÓN DE COMEDORES / MERENDEROS
+// ==========================================================================
+// Sin backend (ADR-004) y sin fetch() (EC-004): el formulario valida y arma
+// un mail (mailto:) para el equipo con todos los datos. El postulante solo
+// tiene que tocar "Enviar" en su app de correo.
+
+const APPLY_EMAIL = 'contacto.donajusto@gmail.com';
+
+// Campos de texto/select. `msg` = campo validado; `optional` = se valida solo si
+// tiene contenido; `check` = regla extra además de "no vacío".
+const APPLY_FIELDS = [
+    { id: 'apply-space-name',   label: 'Nombre del espacio',          msg: 'Ingresá el nombre del espacio.' },
+    { id: 'apply-type',         label: 'Tipo de espacio',             msg: 'Elegí si es comedor, merendero o ambos.' },
+    { id: 'apply-barrio',       label: 'Barrio',                      msg: 'Ingresá el barrio.' },
+    { id: 'apply-address',      label: 'Dirección o referencia',      msg: 'Ingresá la dirección o una referencia.' },
+    { id: 'apply-people',       label: 'Personas que asisten por día', msg: 'Ingresá un número entero mayor a 0.',
+      check: v => Number.isInteger(Number(v)) && Number(v) >= 1 },
+    { id: 'apply-age',          label: 'Tiempo de funcionamiento',    msg: 'Elegí hace cuánto funciona.' },
+    { id: 'apply-schedule',     label: 'Días y horarios de atención', msg: 'Contanos qué días y en qué horarios atienden.' },
+    { id: 'apply-description',  label: 'Descripción y necesidades',   msg: 'Contanos brevemente sobre el espacio y qué necesitan.' },
+    { id: 'apply-contact-name', label: 'Responsable',                 msg: 'Ingresá nombre y apellido del responsable.' },
+    { id: 'apply-phone',        label: 'WhatsApp o teléfono',         msg: 'Ingresá un teléfono válido, con código de área.',
+      check: v => v.replace(/\D/g, '').length >= 8 },
+    { id: 'apply-email',        label: 'Email',                       msg: 'Ingresá un email válido o dejalo vacío.', optional: true,
+      check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id: 'apply-reference',    label: 'Organización o referencia que los avala' }
+];
+
+// Casillas obligatorias (requisitos declarados + consentimiento)
+const APPLY_CHECKS = [
+    { id: 'apply-free',    msg: 'Para postular, el espacio tiene que ser gratuito y sin fines de lucro.' },
+    { id: 'apply-consent', msg: 'Necesitamos tu permiso para contactarte y verificar los datos.' }
+];
+
+function initApplyForm() {
+    const form = document.getElementById('apply-form');
+    if (!form) return;
+
+    // El error de un campo desaparece apenas el usuario lo corrige
+    form.addEventListener('input', e => setApplyError(e.target, ''));
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        if (!validateApplyForm()) return;
+
+        // Estado "cargando": evita doble envío mientras se arma el mail
+        const btn = document.getElementById('apply-submit-btn');
+        const label = document.getElementById('apply-submit-label');
+        btn.disabled = true;
+        label.innerHTML = `<svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg> Preparando tu mensaje…`;
+
+        setTimeout(() => {
+            window.location.href = buildApplyMailto();
+            showApplySuccess();
+            showToast('Revisá tu app de correo y tocá «Enviar».');
+        }, 500);
+    });
+
+    document.getElementById('apply-reset-btn')?.addEventListener('click', resetApplyForm);
+}
+
+function setApplyError(el, message) {
+    if (!el || !el.id) return;
+    const error = document.getElementById(`${el.id}-error`);
+    const hasError = Boolean(message);
+    if (error) {
+        error.textContent = message || '';
+        error.classList.toggle('hidden', !hasError);
+    }
+    el.classList.toggle('!border-red-500', hasError); // '!' para ganarle a border-slate-300 y a dark:border-slate-600
+    el.setAttribute('aria-invalid', String(hasError));
+    if (hasError && error) el.setAttribute('aria-describedby', error.id);
+    else el.removeAttribute('aria-describedby');
+}
+
+function validateApplyForm() {
+    let firstInvalid = null;
+
+    APPLY_FIELDS.forEach(({ id, msg, optional, check }) => {
+        if (!msg) return; // campo sin validación (ej: referencia)
+        const el = document.getElementById(id);
+        if (!el) return;
+        const value = el.value.trim();
+        const invalid = value === '' ? !optional : Boolean(check && !check(value));
+        setApplyError(el, invalid ? msg : '');
+        if (invalid && !firstInvalid) firstInvalid = el;
+    });
+
+    APPLY_CHECKS.forEach(({ id, msg }) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        setApplyError(el, el.checked ? '' : msg);
+        if (!el.checked && !firstInvalid) firstInvalid = el;
+    });
+
+    if (firstInvalid) firstInvalid.focus();
+    return !firstInvalid;
+}
+
+function buildApplyMailto() {
+    const lines = APPLY_FIELDS.map(({ id, label }) => {
+        const el = document.getElementById(id);
+        const value = el.tagName === 'SELECT' ? el.options[el.selectedIndex].text : el.value.trim();
+        return `${label}: ${value || '—'}`;
+    });
+    const spaceName = document.getElementById('apply-space-name').value.trim();
+    const body = [
+        'Hola equipo de DonaJusto, quiero postular mi espacio a la red.',
+        '',
+        ...lines,
+        '',
+        'Declaro que el espacio entrega alimentos de forma gratuita y sin fines de lucro, y acepto que me contacten para verificar estos datos.'
+    ].join('\r\n');
+
+    return `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent('Postulación a DonaJusto: ' + spaceName)}&body=${encodeURIComponent(body)}`;
+}
+
+function showApplySuccess() {
+    // textContent (no innerHTML): lo que escribe el usuario nunca se interpreta como HTML
+    document.getElementById('apply-success-name').textContent =
+        document.getElementById('apply-space-name').value.trim();
+    document.getElementById('apply-form-card').classList.add('hidden');
+
+    const success = document.getElementById('apply-success');
+    success.classList.remove('hidden');
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    success.focus({ preventScroll: true });
+}
+
+function resetApplyForm() {
+    const form = document.getElementById('apply-form');
+    form.reset();
+    form.querySelectorAll('input, select, textarea').forEach(el => setApplyError(el, ''));
+
+    document.getElementById('apply-submit-btn').disabled = false;
+    document.getElementById('apply-submit-label').textContent = 'Enviar postulación →';
+
+    document.getElementById('apply-success').classList.add('hidden');
+    document.getElementById('apply-form-card').classList.remove('hidden');
+    document.getElementById('apply-space-name').focus();
 }

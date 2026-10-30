@@ -389,7 +389,7 @@ function renderVale(comedor, index) {
         <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">${comedor.descripcion}</p>
         <p class="text-xs text-slate-500 dark:text-slate-400">${comedor.tipo} · ${barrioLabel} · ${comedor.personasAsistidas} personas</p>
 
-        <div class="border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 flex justify-between items-center">
+        <div class="mt-auto border-t border-dashed border-slate-200 dark:border-slate-700 pt-3 flex justify-between items-center">
             <span class="text-sm font-semibold text-slate-800 dark:text-slate-100">${criticalItem.item}</span>
             <span class="font-heading font-extrabold ${estadoColor}">faltan ${faltan} ${criticalItem.unidad}</span>
         </div>

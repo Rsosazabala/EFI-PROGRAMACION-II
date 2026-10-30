@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/png/favicon-32.png">
     <link rel="apple-touch-icon" href="assets/brand/png/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#10b981">
+    <meta name="theme-color" content="#064e3b">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,400 +18,270 @@
 
     <!-- Tailwind CSS (v3 CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Configuración de Tailwind (EC-001) -->
+
+    <!-- Configuración de Tailwind (EC-001: modo oscuro por clase) -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        emerald: {
-                            500: '#10b981',
-                            600: '#059669', // Hover
-                        },
-                        amber: {
-                            500: '#f59e0b',
-                            600: '#d97706', // Hover
-                        },
-                        slate: {
-                            50: '#f8fafc',
-                            800: '#1e293b',
-                            900: '#0f172a'
-                        }
-                    },
+                    colors: { crema: '#fbfaf6' },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Poppins', 'system-ui', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Utilidades específicas y obligatorias -->
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .force-text-white {
-                color: #ffffff !important;
-            }
-        }
-    </style>
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 font-sans min-h-screen flex flex-col transition-colors duration-300 relative selection:bg-emerald-500 selection:text-white dot-pattern">
+<body class="bg-crema text-slate-900 dark:bg-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-300 selection:bg-amber-300 selection:text-emerald-950">
 
-    <!-- Fondos de ambientación ambiental (Glows / Mallas suaves) -->
-    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-        <div class="absolute -top-40 -left-40 w-[32rem] h-[32rem] bg-emerald-500/10 dark:bg-emerald-500/15 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/3 -right-40 w-[30rem] h-[30rem] bg-amber-500/10 dark:bg-amber-500/15 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-40 left-1/4 w-[34rem] h-[34rem] bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
-    </div>
+    <!-- ======================================================================
+         HEADER (franja emerald-900)
+         ====================================================================== -->
+    <header class="sticky top-0 z-40 bg-emerald-900 dark:bg-emerald-950">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-8 h-16 flex justify-between items-center" aria-label="Navegación principal">
+            <button data-target="view-home" class="flex items-center gap-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" aria-label="Ir a Inicio de DonaJusto">
+                <img src="assets/logo.svg" alt="" class="w-8 h-8">
+                <span class="font-heading font-extrabold text-xl tracking-tight text-white">Dona<span class="text-amber-400">Justo</span></span>
+            </button>
 
-    <!-- Header y Navbar (Glassmorphism sutil) -->
-    <header class="glass-header sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex justify-between items-center h-16">
-                <!-- Logo con Isotipo Pin del comedor (Color 100% estable, sin clase nav-link) -->
-                <button id="brand-logo" data-target="view-home" class="flex items-center gap-3 focus:outline-none text-left cursor-pointer" aria-label="Ir a Inicio de DonaJusto">
-                    <div class="w-10 h-10 flex-shrink-0">
-                        <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <defs><linearGradient id="header-dj-gradient" x1="9" y1="3" x2="55" y2="61" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#047857"/></linearGradient></defs>
-                            <path d="M32 3 C19.3 3 9 13.3 9 26 C9 42.5 32 61 32 61 C32 61 55 42.5 55 26 C55 13.3 44.7 3 32 3 Z" fill="url(#header-dj-gradient)"/><circle cx="32" cy="26" r="15" fill="#ffffff"/>
-                            <rect x="20.5" y="25" width="23" height="3.2" rx="1.6" fill="#047857"/>
-                            <path d="M22.5 27.5 H41.5 A9.5 8 0 0 1 22.5 27.5 Z" fill="#10b981"/>
-                            <path d="M32 22.5 C27.5 19.3 28.5 14.2 32 16.4 C35.5 14.2 36.5 19.3 32 22.5 Z" fill="#f59e0b"/>
-                        </svg>
-                    </div>
-                    <span class="font-heading text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white select-none">
-                        Dona<span class="text-emerald-500">Justo</span>
-                    </span>
+            <!-- Menú escritorio -->
+            <div class="hidden md:flex items-center gap-6 text-sm">
+                <button data-target="view-home" class="nav-link py-1 text-white border-b-2 border-amber-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-sm">Inicio</button>
+                <button data-target="view-catalog" class="nav-link py-1 text-emerald-100/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-sm">Comedores</button>
+                <button data-target="view-team" class="nav-link py-1 text-emerald-100/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-sm">Equipo</button>
+                <button data-target="view-form" class="py-1 text-amber-300 font-semibold hover:text-amber-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-sm">Donar →</button>
+                <button id="theme-toggle" class="w-11 h-11 rounded-full border border-emerald-700 flex items-center justify-center hover:bg-emerald-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" aria-label="Cambiar tema">
+                    <span id="theme-icon-container" class="flex items-center justify-center"></span>
                 </button>
-                
-                <!-- Menú Escritorio -->
-                <div class="hidden md:flex space-x-6 items-center">
-                    <button data-target="view-home" class="nav-link font-medium hover:text-emerald-500 transition-colors py-2 px-3 rounded-lg text-sm">Inicio</button>
-                    <button data-target="view-catalog" class="nav-link font-medium hover:text-emerald-500 transition-colors py-2 px-3 rounded-lg text-sm">Comedores</button>
-                    <button data-target="view-team" class="nav-link font-medium hover:text-emerald-500 transition-colors py-2 px-3 rounded-lg text-sm">Equipo</button>
-                    <button data-target="view-form" class="nav-link font-medium hover:text-emerald-500 transition-colors py-2 px-3 rounded-lg text-sm">Donar</button>
-                    
-                    <!-- Botón Modo Oscuro con Icono SVG -->
-                    <button id="theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center shadow-sm" aria-label="Cambiar tema">
-                        <span id="theme-icon-container" class="flex items-center justify-center"></span>
-                    </button>
-                </div>
-                
-                <!-- Botón Menú Móvil -->
-                <div class="md:hidden flex items-center space-x-2">
-                    <button id="theme-toggle-mobile" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center shadow-sm" aria-label="Cambiar tema">
-                        <span id="theme-icon-container-mobile" class="flex items-center justify-center"></span>
-                    </button>
-                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Abrir menú">
-                        <svg class="w-5 h-5 text-slate-700 dark:text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </nav>
-        </div>
-        
-        <!-- Menú Móvil (Desplegable) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-700 transition-colors duration-300">
-            <div class="px-4 pt-3 pb-4 space-y-2 flex flex-col">
-                <button data-target="view-home" class="nav-link block px-4 py-3 rounded-xl text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700 text-left min-h-[44px]">Inicio</button>
-                <button data-target="view-catalog" class="nav-link block px-4 py-3 rounded-xl text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700 text-left min-h-[44px]">Comedores</button>
-                <button data-target="view-team" class="nav-link block px-4 py-3 rounded-xl text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700 text-left min-h-[44px]">Equipo</button>
-                <button data-target="view-form" class="nav-link block px-4 py-3 rounded-xl text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700 text-left min-h-[44px]">Donar</button>
             </div>
+
+            <!-- Controles móviles -->
+            <div class="flex md:hidden items-center gap-2">
+                <button id="theme-toggle-mobile" class="w-11 h-11 rounded-full border border-emerald-700 flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" aria-label="Cambiar tema">
+                    <span id="theme-icon-container-mobile" class="flex items-center justify-center"></span>
+                </button>
+                <button id="mobile-menu-btn" class="w-11 h-11 rounded-full border border-emerald-700 flex items-center justify-center text-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-emerald-800 bg-emerald-900 dark:bg-emerald-950 px-4 pb-4 pt-2">
+            <button data-target="view-home" class="block w-full text-left px-4 py-3 rounded-xl text-emerald-50 hover:bg-emerald-800 min-h-[44px]">Inicio</button>
+            <button data-target="view-catalog" class="block w-full text-left px-4 py-3 rounded-xl text-emerald-50 hover:bg-emerald-800 min-h-[44px]">Comedores</button>
+            <button data-target="view-team" class="block w-full text-left px-4 py-3 rounded-xl text-emerald-50 hover:bg-emerald-800 min-h-[44px]">Equipo</button>
+            <button data-target="view-form" class="block w-full text-left px-4 py-3 rounded-xl text-amber-300 font-semibold hover:bg-emerald-800 min-h-[44px]">Donar →</button>
         </div>
     </header>
 
-    <!-- Contenido Principal (SPA) -->
-    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-        
-        <!-- Vista 1: Inicio -->
-        <section id="view-home" class="view-section space-y-16 sm:space-y-24">
-            
-            <!-- Hero de 2 Columnas de Alto Impacto -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center pt-4 sm:pt-8">
-                <!-- Columna Izquierda: Mensaje y Acción -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-semibold uppercase tracking-wider border border-emerald-500/20 shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        <span>Red Comunitaria de Río Cuarto • Impacto Real</span>
-                    </div>
+    <main class="flex-grow w-full">
 
-                    <h2 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900 dark:text-white">
-                        Doná con justicia, <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600">donde realmente hace falta</span>
-                    </h2>
+        <!-- ==================================================================
+             VISTA 1: INICIO
+             ================================================================== -->
+        <section id="view-home" class="view-section">
 
-                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Conectamos a quienes quieren ayudar con las necesidades reales y el stock de cada comedor en tiempo real. Ayuda orientada, transparente y sin intermediarios.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 pt-2">
-                        <button data-target="view-catalog" class="nav-link w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 force-text-white font-semibold py-3.5 px-8 rounded-xl shadow-lg shadow-emerald-500/25 transition-colors min-h-[44px] flex items-center justify-center gap-2">
-                            <span>Explorar comedores</span>
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <!-- Hero + cinta (misma franja que el header) -->
+            <div class="bg-emerald-900 dark:bg-emerald-950 text-emerald-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-8 pt-8 pb-12 sm:pt-12 sm:pb-16 grid lg:grid-cols-[1.4fr_1fr] gap-8 items-end">
+                    <h1 class="font-heading font-extrabold text-5xl sm:text-7xl leading-[0.95] tracking-tight text-white">
+                        Hoy en Río Cuarto <span class="text-amber-400"><span id="hero-counter" class="tabular-nums">790</span> personas</span> comen en un comedor.
+                    </h1>
+                    <div class="flex flex-col gap-5">
+                        <p class="text-emerald-100/80 text-lg leading-relaxed">Vos podés hacer que no falte nada. Mirá qué necesita cada lugar y llevá exactamente eso.</p>
+                        <button data-target="view-catalog" class="self-start px-6 py-3.5 min-h-[48px] rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-900">
+                            Ver qué falta hoy
                         </button>
-                        <button data-target="view-form" class="nav-link w-full sm:w-auto border border-slate-300 dark:border-slate-700 bg-white/80 dark:bg-slate-800/80 hover:bg-slate-100 dark:hover:bg-slate-700 font-medium py-3.5 px-8 rounded-xl transition-all min-h-[44px] flex items-center justify-center gap-2 shadow-sm">
-                            <span>Ofrecer una donación</span>
-                        </button>
-                    </div>
-
-                    <!-- Fila de confianza rápida -->
-                    <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-wrap justify-center lg:justify-start gap-6 text-xs text-slate-500 dark:text-slate-400">
-                        <div class="flex items-center gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span>100% Ayuda directa</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span>Stock por movimientos</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span class="text-emerald-500 font-bold">✓</span>
-                            <span>Cero burocracia</span>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Tarjeta Interactiva de Urgencia en Vivo -->
-                <div class="lg:col-span-5">
-                    <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-xl relative overflow-hidden border border-slate-200/80 dark:border-slate-700/80">
-                        <!-- Glow de acento -->
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                        <div class="flex justify-between items-center mb-5">
-                            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 pulse-badge">
-                                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                                <span>Urgencia Destacada Hoy</span>
-                            </span>
-                            <span class="text-xs text-slate-400">Prioridad #1</span>
-                        </div>
-
-                        <div class="mb-4">
-                            <h3 class="font-heading text-xl font-bold text-slate-900 dark:text-white">Rincón de Luz</h3>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Barrio Esperanza Norte • Asiste a 160 personas</p>
-                        </div>
-
-                        <!-- Estado crítico del insumo -->
-                        <div class="p-4 rounded-2xl bg-amber-50/80 dark:bg-amber-950/20 border border-amber-200/80 dark:border-amber-800/60 mb-5 space-y-3">
-                            <div class="flex justify-between items-center text-xs">
-                                <span class="font-bold text-amber-900 dark:text-amber-200 flex items-center gap-2">
-                                    <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                                    <span>Leche en polvo (Faltante crítico)</span>
-                                </span>
-                                <span class="text-red-600 dark:text-red-400 font-bold">Solo 3 kg de 35 kg</span>
-                            </div>
-                            <progress value="3" max="35" class="h-2.5" aria-label="Stock de Leche en polvo"></progress>
-                            <p class="text-[11px] text-slate-600 dark:text-slate-300">
-                                Se requieren 30 kg urgentemente para garantizar el desayuno de 40 familias.
-                            </p>
-                        </div>
-
-                        <button 
-                            id="hero-spotlight-btn"
-                            class="w-full bg-amber-500 hover:bg-amber-600 force-text-white font-semibold py-3 px-4 rounded-xl transition-all min-h-[44px] shadow-md shadow-amber-500/25 flex items-center justify-center gap-2">
-                            <span>Aportar a este comedor ahora</span>
-                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </button>
-                    </div>
+                <!-- Cinta animada: lo que falta hoy -->
+                <div class="border-t border-emerald-700/60 bg-emerald-950/40 py-3 overflow-hidden" aria-label="Lo que falta hoy en cada comedor">
+                    <div id="marquee-content" class="marquee flex gap-10 whitespace-nowrap w-max font-heading font-semibold text-sm pl-4"></div>
                 </div>
             </div>
 
-            <!-- Sección: Cómo Funciona DonaJusto (3 Pasos Claros) -->
-            <article class="pt-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <span class="text-xs uppercase tracking-wider font-bold text-emerald-500 dark:text-emerald-400">Proceso Solidario</span>
-                    <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-1 mb-3">¿Cómo funciona la plataforma?</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Tres pasos sencillos para que tu ayuda rinda el triple y llegue a tiempo.</p>
-                </div>
+            <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-16 flex flex-col gap-16 sm:gap-20">
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Paso 1 -->
-                    <div class="modern-card p-6 sm:p-7 rounded-2xl shadow-sm space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-heading font-extrabold text-xl">
-                            1
-                        </div>
-                        <h4 class="font-heading text-lg font-bold">Identificá la necesidad</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Explorá el catálogo en tiempo real. Cada comedor declara qué alimentos le faltan hoy y qué stock tiene disponible.
-                        </p>
+                <!-- Vales de esta semana -->
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-end justify-between gap-4">
+                        <h2 class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-slate-900 dark:text-white">Vales de esta semana</h2>
+                        <button data-target="view-catalog" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline min-h-[44px]">Ver los 6 →</button>
                     </div>
+                    <div id="home-vales-grid" class="grid md:grid-cols-3 gap-6"></div>
+                </div>
 
-                    <!-- Paso 2 -->
-                    <div class="modern-card p-6 sm:p-7 rounded-2xl shadow-sm space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-heading font-extrabold text-xl">
-                            2
-                        </div>
-                        <h4 class="font-heading text-lg font-bold">Elegí tu donación</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            Seleccioná el comedor que querés apoyar e indicá qué insumos tenés disponibles para donar según sus prioridades.
-                        </p>
+                <!-- Cómo funciona -->
+                <div class="flex flex-col gap-8">
+                    <div>
+                        <span class="text-[11px] font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">En tres pasos</span>
+                        <h2 class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-slate-900 dark:text-white mt-1">Cómo funciona</h2>
                     </div>
+                    <ol class="grid md:grid-cols-3 gap-8">
+                        <li class="md:border-l-2 md:border-dashed md:border-amber-300 dark:md:border-amber-500/50 md:pl-6 flex flex-col gap-2">
+                            <span class="font-heading font-extrabold text-6xl text-amber-400 leading-none" aria-hidden="true">1</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Mirá qué falta</h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Cada comedor publica qué le falta hoy y cuánto stock le queda.</p>
+                        </li>
+                        <li class="md:border-l-2 md:border-dashed md:border-amber-300 dark:md:border-amber-500/50 md:pl-6 flex flex-col gap-2">
+                            <span class="font-heading font-extrabold text-6xl text-amber-400 leading-none" aria-hidden="true">2</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Elegí qué llevar</h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">Ofrecé exactamente el insumo que necesitan, no lo que sobra.</p>
+                        </li>
+                        <li class="md:border-l-2 md:border-dashed md:border-amber-300 dark:md:border-amber-500/50 md:pl-6 flex flex-col gap-2">
+                            <span class="font-heading font-extrabold text-6xl text-amber-400 leading-none" aria-hidden="true">3</span>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Coordinamos la entrega</h3>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">El comedor te contacta para recibir la donación. Sin intermediarios.</p>
+                        </li>
+                    </ol>
+                </div>
 
-                    <!-- Paso 3 -->
-                    <div class="modern-card p-6 sm:p-7 rounded-2xl shadow-sm space-y-4">
-                        <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center font-heading font-extrabold text-xl">
-                            3
+                <!-- Lo que más falta en la red -->
+                <div class="grid lg:grid-cols-[1.5fr_1fr] gap-8 items-start">
+                    <div class="rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-6 sm:p-8 flex flex-col gap-5">
+                        <div class="flex justify-between items-baseline gap-4">
+                            <h2 class="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-white">Lo que más falta en la red</h2>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">% de demanda</span>
                         </div>
-                        <h4 class="font-heading text-lg font-bold">Coordinación directa</h4>
-                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                            El comedor recibe tu propuesta y se contacta directamente para coordinar la entrega. Sin burocracia ni pérdidas.
-                        </p>
+                        <div id="home-insumos-list" class="flex flex-col gap-4"></div>
                     </div>
-                </div>
-            </article>
-            
-            <!-- Indicadores de impacto consolidados -->
-            <article class="pt-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <span class="text-xs uppercase tracking-wider font-bold text-slate-400">Transparencia y Métricas</span>
-                    <h3 class="font-heading text-2xl sm:text-3xl font-bold mt-1 mb-2">Impacto en tiempo real de la red</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Datos consolidados de los comedores y merenderos comunitarios</p>
-                </div>
-                <div id="impact-indicators" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Dinámico: JS inyectará los indicadores -->
-                </div>
-            </article>
-        </section>
-
-        <!-- Vista 2: Catálogo de Comedores -->
-        <section id="view-catalog" class="view-section hidden space-y-8">
-            <div>
-                <div class="text-center md:text-left mb-6">
-                    <span class="text-xs uppercase tracking-wider font-bold text-emerald-500 dark:text-emerald-400">Red Comunitaria</span>
-                    <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-1 mb-2">Comedores y Merenderos</h2>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">Conocé qué necesita cada espacio y doná exactamente lo que hace falta hoy.</p>
-                </div>
-
-                <!-- Barra interactiva: Búsqueda y Filtros en tiempo real -->
-                <div class="modern-card p-4 sm:p-5 rounded-2xl shadow-sm space-y-4">
-                    <div class="flex flex-col md:flex-row gap-3 items-center justify-between">
-                        <!-- Buscador -->
-                        <div class="relative w-full md:max-w-xl">
-                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>
-                            </span>
-                            <input 
-                                type="text" 
-                                id="catalog-search" 
-                                placeholder="Buscar por nombre, barrio o alimento (ej: leche, harina)..." 
-                                class="w-full pl-10 pr-4 py-3 min-h-[44px] rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors text-sm">
+                    <dl class="grid grid-cols-3 lg:grid-cols-1 gap-6 lg:pt-4">
+                        <div class="flex flex-col-reverse">
+                            <dt class="text-sm text-slate-500 dark:text-slate-400">Personas asistidas</dt>
+                            <dd class="counter-element font-heading font-extrabold text-4xl sm:text-5xl text-emerald-900 dark:text-emerald-300 tabular-nums" data-target="790">790</dd>
                         </div>
-
-                        <!-- Contador de resultados -->
-                        <div id="catalog-count" class="text-xs font-semibold text-slate-500 dark:text-slate-400 self-end md:self-center">
-                            Mostrando 6 comedores
+                        <div class="flex flex-col-reverse">
+                            <dt class="text-sm text-slate-500 dark:text-slate-400">Espacios en red</dt>
+                            <dd class="counter-element font-heading font-extrabold text-4xl sm:text-5xl text-emerald-900 dark:text-emerald-300 tabular-nums" data-target="6">6</dd>
                         </div>
-                    </div>
-
-                    <!-- Chips de Filtros Rápidos -->
-                    <div class="flex flex-wrap items-center gap-2 pt-1" id="filter-chips">
-                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider mr-1">Filtrar:</span>
-                        <button data-filter="all" class="filter-chip active px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[38px] flex items-center gap-1.5">
-                            Todos
-                        </button>
-                        <button data-filter="urgente" class="filter-chip px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[38px] flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                            </svg>
-                            <span>Urgencia Alta</span>
-                        </button>
-                        <button data-filter="Comedor" class="filter-chip px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[38px] flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                            </svg>
-                            <span>Comedores</span>
-                        </button>
-                        <button data-filter="Merendero" class="filter-chip px-3.5 py-1.5 rounded-lg text-xs font-semibold border transition-all min-h-[38px] flex items-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
-                            </svg>
-                            <span>Merenderos</span>
-                        </button>
-                    </div>
+                        <div class="flex flex-col-reverse">
+                            <dt class="text-sm text-slate-500 dark:text-slate-400">Aportes del mes</dt>
+                            <dd class="counter-element font-heading font-extrabold text-4xl sm:text-5xl text-emerald-900 dark:text-emerald-300 tabular-nums" data-target="154">154</dd>
+                        </div>
+                    </dl>
                 </div>
-            </div>
-            
-            <!-- Grilla Responsive -->
-            <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dinámico: JS inyectará las tarjetas -->
             </div>
         </section>
 
-        <!-- Vista 3: Formulario de Donación (Layout de 2 Columnas) -->
-        <section id="view-form" class="view-section hidden space-y-8">
-            <div class="text-center max-w-2xl mx-auto mb-6">
-                <span class="text-xs uppercase tracking-wider font-bold text-amber-500">Compromiso Comunitario</span>
-                <h2 class="font-heading text-3xl sm:text-4xl font-bold mt-1 mb-2">Contactar para Donar</h2>
-                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">Dejanos tu propuesta de ayuda y el comedor coordinará la entrega directamente con vos.</p>
+        <!-- ==================================================================
+             VISTA 2: COMEDORES
+             ================================================================== -->
+        <section id="view-catalog" class="view-section hidden">
+            <div class="bg-emerald-900 dark:bg-emerald-950">
+                <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14 flex flex-col gap-2">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-amber-300">Red comunitaria</span>
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl tracking-tight text-white">Comedores y merenderos</h1>
+                    <p class="text-emerald-100/80 leading-relaxed max-w-2xl">Conocé qué necesita cada espacio y doná exactamente lo que hace falta hoy.</p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
-                <!-- Columna Izquierda: Pautas e Información -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="modern-card p-6 sm:p-7 rounded-2xl shadow-sm space-y-5">
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>¿Por qué donar por aquí?</span>
-                        </h3>
-                        <ul class="space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                            <li class="flex items-start gap-3">
-                                <span class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <span><strong>Evitás excedentes:</strong> La ayuda va directo a lo que el comedor tiene en falta crítica hoy.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <span><strong>Contacto humano:</strong> Te contactan las personas encargadas de la cocina comunitaria.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-5 h-5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">✓</span>
-                                <span><strong>Seguimiento de stock:</strong> Tu donación se registra como un movimiento positivo en la red.</span>
-                            </li>
+            <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 flex flex-col gap-8">
+                <div class="flex flex-col gap-4">
+                    <div class="relative max-w-xl">
+                        <label for="catalog-search" class="sr-only">Buscar comedores</label>
+                        <svg class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="search" id="catalog-search" placeholder="Buscá por nombre, barrio o alimento (ej: leche)" class="w-full rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 pl-12 pr-5 py-3 min-h-[48px] text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400">
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar comedores">
+                            <button class="filter-chip active rounded-full border px-4 py-2 min-h-[44px] text-sm font-semibold transition-colors" data-filter="all">Todos</button>
+                            <button class="filter-chip rounded-full border px-4 py-2 min-h-[44px] text-sm font-semibold transition-colors" data-filter="urgente">Urgentes</button>
+                            <button class="filter-chip rounded-full border px-4 py-2 min-h-[44px] text-sm font-semibold transition-colors" data-filter="Comedor">Comedores</button>
+                            <button class="filter-chip rounded-full border px-4 py-2 min-h-[44px] text-sm font-semibold transition-colors" data-filter="Merendero">Merenderos</button>
+                        </div>
+                        <span id="catalog-count" class="text-sm text-slate-500 dark:text-slate-400 tabular-nums" aria-live="polite">Mostrando 6 de 6</span>
+                    </div>
+                </div>
+
+                <div id="catalog-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VISTA 3: EQUIPO (Consigna punto 9)
+             ================================================================== -->
+        <section id="view-team" class="view-section hidden">
+            <div class="bg-emerald-900 dark:bg-emerald-950">
+                <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14 flex flex-col gap-2">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-amber-300">Quiénes lo hacen</span>
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl tracking-tight text-white">Equipo de desarrollo</h1>
+                    <p class="text-emerald-100/80 leading-relaxed max-w-2xl">Estudiantes de la Tecnicatura Superior en Desarrollo de Software (ITEC Río Cuarto) que diseñan y construyen DonaJusto como proyecto integrador con impacto comunitario.</p>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12">
+                <div id="team-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             VISTA 4: DONAR
+             ================================================================== -->
+        <section id="view-form" class="view-section hidden">
+            <div class="bg-emerald-900 dark:bg-emerald-950">
+                <div class="max-w-6xl mx-auto px-4 sm:px-8 py-10 sm:py-14 flex flex-col gap-2">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-amber-300">Compromiso comunitario</span>
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl tracking-tight text-white">Ofrecé tu donación</h1>
+                    <p class="text-emerald-100/80 leading-relaxed max-w-2xl">Dejá tu propuesta y el comedor coordina la entrega directamente con vos.</p>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12 grid lg:grid-cols-[1fr_1.3fr] gap-8 items-start">
+                <div class="flex flex-col gap-6">
+                    <div class="rounded-2xl bg-emerald-900 dark:bg-emerald-950 text-emerald-50 p-6 sm:p-7 flex flex-col gap-4">
+                        <h2 class="font-heading font-extrabold text-xl text-white">¿Por qué donar por acá?</h2>
+                        <ul class="flex flex-col gap-3 text-sm leading-relaxed">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Evitás excedentes:</strong> tu ayuda va a lo que falta hoy.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Contacto humano:</strong> te escribe la persona que cocina.</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-white">Seguimiento:</strong> tu aporte suma al stock del comedor.</span></li>
                         </ul>
                     </div>
-
-                    <div class="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-900 dark:text-amber-200 space-y-2">
-                        <span class="font-bold flex items-center gap-1.5 text-amber-800 dark:text-amber-300">
-                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>Insumos no monetarios</span>
-                        </span>
-                        <p class="leading-relaxed">
-                            En esta etapa, DonaJusto coordina exclusivamente la donación de alimentos secos, frescos e insumos de higiene. No se solicitan aportes de dinero en efectivo.
-                        </p>
+                    <div class="rounded-2xl border-2 border-dashed border-amber-400 bg-amber-50 dark:bg-amber-500/10 p-5 flex flex-col gap-1">
+                        <h3 class="font-bold text-amber-800 dark:text-amber-300">Solo insumos, no dinero</h3>
+                        <p class="text-sm text-amber-900/80 dark:text-amber-200/80 leading-relaxed">En esta etapa DonaJusto coordina únicamente alimentos secos, frescos e insumos de higiene.</p>
                     </div>
                 </div>
 
-                <!-- Columna Derecha: Formulario -->
-                <div class="lg:col-span-7">
-                    <div class="modern-card rounded-2xl shadow-xl p-6 sm:p-8">
-                        <form id="donation-form" class="space-y-6">
+                <div id="form-container">
+                    <div class="vale relative rounded-2xl bg-white dark:bg-slate-800 border-2 border-dashed border-emerald-400/70 p-6 flex flex-col gap-5">
+                        <span class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <span class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-crema dark:bg-slate-900 border-2 border-dashed border-emerald-400/70" aria-hidden="true"></span>
+                        <div class="flex justify-between text-[11px] font-bold uppercase tracking-widest">
+                            <span class="text-emerald-600 dark:text-emerald-400">Tu donación</span>
+                            <span class="text-slate-400">Vale de propuesta</span>
+                        </div>
+                        <form id="donation-form" class="space-y-4" novalidate>
                             <div>
-                                <label for="donor-name" class="block text-sm font-semibold mb-2">Nombre y Apellido</label>
-                                <input type="text" id="donor-name" required placeholder="Ej: María Gómez" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3.5 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors text-sm">
+                                <label for="donor-name" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Nombre y apellido</label>
+                                <input type="text" id="donor-name" required placeholder="Ej: María Gómez" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                <p id="error-name" class="hidden text-sm text-red-600 mt-1"></p>
                             </div>
-                            
                             <div>
-                                <label for="comedor-select" class="block text-sm font-semibold mb-2">Comedor o Merendero de destino</label>
-                                <select id="comedor-select" required class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3.5 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors text-sm">
+                                <label for="donor-contact" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Email o WhatsApp</label>
+                                <input type="text" id="donor-contact" required placeholder="Ej: maria@email.com o 3584123456" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
+                                <p id="error-contact" class="hidden text-sm text-red-600 mt-1"></p>
+                            </div>
+                            <div>
+                                <label for="comedor-select" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Comedor o merendero</label>
+                                <select id="comedor-select" required class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors">
                                     <option value="">Seleccione un comedor...</option>
                                 </select>
+                                <p id="error-comedor" class="hidden text-sm text-red-600 mt-1"></p>
                             </div>
-                            
                             <div>
-                                <label for="donation-message" class="block text-sm font-semibold mb-2">Detalle de tu donación</label>
-                                <textarea id="donation-message" required rows="4" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-colors text-sm" placeholder="Ej: Tengo 10 paquetes de fideos, 5 litros de leche y ropa de abrigo limpia..."></textarea>
+                                <label for="donation-message" class="block text-sm font-semibold mb-1.5 text-slate-900 dark:text-white">Detalle de la donación</label>
+                                <textarea id="donation-message" required rows="3" placeholder="Ej: 10 paquetes de fideos y 5 litros de leche" class="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/60 p-3 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-colors resize-none"></textarea>
+                                <p id="error-message" class="hidden text-sm text-red-600 mt-1"></p>
                             </div>
-                            
-                            <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 force-text-white font-semibold py-3.5 px-4 rounded-xl transition-all min-h-[44px] shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2">
-                                <span>Enviar propuesta de donación</span>
-                                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <button type="submit" id="submit-btn" class="rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold w-full min-h-[48px] transition-colors focus-visible:ring-2 focus-visible:ring-amber-400 flex items-center justify-center gap-2">
+                                <span id="submit-label">Enviar propuesta →</span>
                             </button>
                         </form>
                     </div>
@@ -419,240 +289,80 @@
             </div>
         </section>
 
-        <!-- Vista 4: Equipo de Trabajo (Consigna Punto 9) -->
-        <section id="view-team" class="view-section hidden space-y-12">
-            <div class="text-center max-w-3xl mx-auto space-y-3">
-                <span class="text-xs uppercase tracking-wider font-bold text-emerald-500 dark:text-emerald-400">Transparencia y Compromiso</span>
-                <h2 class="font-heading text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Equipo de Desarrollo</h2>
-                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-                    Conocé a los estudiantes de la Tecnicatura Superior en Desarrollo de Software (ITEC Río Cuarto) que diseñan y construyen DonaJusto como proyecto integrador con impacto comunitario real.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <!-- Tarjeta 1: Julián Altamirano -->
-                <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col items-center text-center space-y-4 hover:border-emerald-500/40 transition-colors">
-                    <div class="relative w-24 h-24 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-emerald-500 to-teal-400 shadow-md">
-                        <img src="assets/team/julian.svg" alt="Foto de Julián Altamirano" class="w-full h-full rounded-full object-cover bg-white">
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">Julián Altamirano</h3>
-                        <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
-                            Líder de Proyecto / PM & UI Architect
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Coordinación general del equipo, arquitectura técnica frontend y control de calidad bajo metodología SDD y seminario Antigravity.
-                    </p>
-                    <div class="pt-3 border-t border-slate-100 dark:border-slate-800 w-full text-[11px] text-slate-400">
-                        ITEC Río Cuarto • Programación II
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Matías Rodríguez -->
-                <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col items-center text-center space-y-4 hover:border-emerald-500/40 transition-colors">
-                    <div class="relative w-24 h-24 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-sky-500 to-blue-500 shadow-md">
-                        <img src="assets/team/matias.svg" alt="Foto de Matías Rodríguez" class="w-full h-full rounded-full object-cover bg-white">
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">Matías Rodríguez</h3>
-                        <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-700 dark:text-sky-300 border border-sky-500/20">
-                            Analista Funcional
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Relevamiento territorial con comedores y merenderos, análisis de stock y definición de historias de usuario con impacto social.
-                    </p>
-                    <div class="pt-3 border-t border-slate-100 dark:border-slate-800 w-full text-[11px] text-slate-400">
-                        ITEC Río Cuarto • Programación II
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3: Santiago Heredia -->
-                <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col items-center text-center space-y-4 hover:border-emerald-500/40 transition-colors">
-                    <div class="relative w-24 h-24 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-md">
-                        <img src="assets/team/santiago.svg" alt="Foto de Santiago Heredia" class="w-full h-full rounded-full object-cover bg-white">
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">Santiago Heredia</h3>
-                        <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20">
-                            Diseñador UX/UI
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Diseño centrado en el usuario, paleta institucional, contrastes WCAG accesibles, modo claro/oscuro y maquetado mobile-first.
-                    </p>
-                    <div class="pt-3 border-t border-slate-100 dark:border-slate-800 w-full text-[11px] text-slate-400">
-                        ITEC Río Cuarto • Programación II
-                    </div>
-                </div>
-
-                <!-- Tarjeta 4: Ignacio López Ruiz -->
-                <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col items-center text-center space-y-4 hover:border-emerald-500/40 transition-colors">
-                    <div class="relative w-24 h-24 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-amber-500 to-orange-500 shadow-md">
-                        <img src="assets/team/ignacio.svg" alt="Foto de Ignacio López Ruiz" class="w-full h-full rounded-full object-cover bg-white">
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">Ignacio López Ruiz</h3>
-                        <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
-                            Analista de Datos
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Modelado de datos de prueba ficticios, cálculo de demanda crítica y diseño de métricas de impacto comunitario en tiempo real.
-                    </p>
-                    <div class="pt-3 border-t border-slate-100 dark:border-slate-800 w-full text-[11px] text-slate-400">
-                        ITEC Río Cuarto • Programación II
-                    </div>
-                </div>
-
-                <!-- Tarjeta 5: Rodrigo Sosa Zabala -->
-                <div class="modern-card rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 dark:border-slate-800 flex flex-col items-center text-center space-y-4 hover:border-emerald-500/40 transition-colors sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none">
-                    <div class="relative w-24 h-24 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-teal-500 to-emerald-600 shadow-md">
-                        <img src="assets/team/rodrigo.svg" alt="Foto de Rodrigo Sosa Zabala" class="w-full h-full rounded-full object-cover bg-white">
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">Rodrigo Sosa Zabala</h3>
-                        <span class="inline-block mt-1 px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
-                            Comunicación y Documentación
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        Redacción técnica del documento de investigación, estrategia de difusión en redes sociales y coordinación del guion de defensa oral.
-                    </p>
-                    <div class="pt-3 border-t border-slate-100 dark:border-slate-800 w-full text-[11px] text-slate-400">
-                        ITEC Río Cuarto • Programación II
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer enriquecido con Social Media (Consigna Punto 4) -->
-    <footer class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-t border-slate-200 dark:border-slate-700 mt-auto py-12 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                <!-- Columna 1: Marca y Propósito -->
-                <div class="md:col-span-5 space-y-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 flex-shrink-0">
-                            <img src="assets/logo.svg" alt="Logo DonaJusto" class="w-full h-full">
-                        </div>
-                        <span class="font-heading text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                            Dona<span class="text-emerald-500">Justo</span>
-                        </span>
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+    <footer class="bg-emerald-950 text-emerald-100/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-8 py-12 flex flex-col gap-10">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-2">
+                        <img src="assets/logo.svg" alt="Logo DonaJusto" class="w-8 h-8">
+                        <span class="font-heading font-extrabold text-xl text-white">Dona<span class="text-amber-400">Justo</span></span>
                     </div>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 max-w-sm leading-relaxed">
-                        Plataforma digital para conectar donantes particulares y empresas con las necesidades reales y stock en tiempo real de comedores comunitarios de Río Cuarto, Córdoba.
-                    </p>
-                    <p class="text-xs text-slate-400 flex items-center gap-1.5 pt-1">
-                        <span>📍 Av. Italia 1350, Río Cuarto, Córdoba</span>
-                        <span>•</span>
-                        <span>☎ +54 (358) 465-9800</span>
-                    </p>
+                    <p class="text-sm leading-relaxed">Plataforma digital para conectar donantes particulares y empresas con las necesidades reales y stock en tiempo real de comedores comunitarios de Río Cuarto, Córdoba.</p>
+                    <p class="text-xs text-emerald-100/60">Av. Italia 1350, Río Cuarto, Córdoba · +54 (358) 465-9800</p>
                 </div>
-
-                <!-- Columna 2: Redes Sociales Requeridas -->
-                <div class="md:col-span-3 space-y-3">
-                    <h4 class="font-heading text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Canales y Redes Sociales</h4>
-                    <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                        <li>
-                            <a href="mailto:contacto.donajusto@gmail.com" class="hover:text-emerald-500 transition-colors flex items-center gap-2">
-                                <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                                <span>contacto.donajusto@gmail.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://instagram.com/donajusto.arg" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500 transition-colors flex items-center gap-2">
-                                <svg class="w-4 h-4 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                                <span>@donajusto.arg (Instagram)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://facebook.com/donajusto.arg" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500 transition-colors flex items-center gap-2">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                                <span>facebook.com/donajusto.arg</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://youtube.com/@DonaJustoOficial" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-500 transition-colors flex items-center gap-2">
-                                <svg class="w-4 h-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <span>@DonaJustoOficial (YouTube)</span>
-                            </a>
-                        </li>
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-[11px] font-bold uppercase tracking-widest text-white">Canales</h2>
+                    <ul class="flex flex-col gap-2 text-sm">
+                        <li><a href="mailto:contacto.donajusto@gmail.com" class="inline-flex items-center gap-2 hover:text-white transition-colors"><svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>contacto.donajusto@gmail.com</a></li>
+                        <li><a href="https://instagram.com/donajusto.arg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors"><svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@donajusto.arg (Instagram)</a></li>
+                        <li><a href="https://facebook.com/donajusto.arg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors"><svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>facebook.com/donajusto.arg</a></li>
+                        <li><a href="https://youtube.com/@DonaJustoOficial" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-white transition-colors"><svg class="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path stroke-linejoin="round" d="M10 9l5 3-5 3z"/></svg>@DonaJustoOficial (YouTube)</a></li>
                     </ul>
                 </div>
-
-                <!-- Columna 3: Feedback y Relevamiento -->
-                <div class="md:col-span-4 space-y-3">
-                    <h4 class="font-heading text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">Feedback y Nuevos Comedores</h4>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        ¿Representás a un comedor o merendero barrial? Completá nuestro formulario de relevamiento para unirte a la red.
-                    </p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-donajusto-feedback/viewform" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 text-xs font-semibold transition-all">
-                        <span>Formulario de Feedback y Relevamiento</span>
-                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <div class="flex flex-col gap-3">
+                    <h2 class="text-[11px] font-bold uppercase tracking-widest text-white">¿Tenés un comedor?</h2>
+                    <p class="text-sm leading-relaxed">Completá el formulario de relevamiento para sumarte a la red.</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-donajusto-feedback/viewform" target="_blank" rel="noopener noreferrer" class="self-start inline-flex items-center gap-2 rounded-full border border-amber-400 text-amber-300 px-5 py-2.5 min-h-[44px] text-sm font-semibold hover:bg-amber-400 hover:text-emerald-950 transition-colors">
+                        Formulario de relevamiento
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
                 </div>
             </div>
-
-            <div class="pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
-                <p>&copy; 2026 DonaJusto • Entrega Final Integrador (EFI) de Programación II • ITEC Río Cuarto.</p>
-                <div class="flex items-center gap-4">
-                    <button data-target="view-team" class="nav-link hover:text-emerald-500 transition-colors">Nuestro Equipo</button>
-                    <span>•</span>
-                    <button data-target="view-catalog" class="nav-link hover:text-emerald-500 transition-colors">Comedores</button>
-                    <span>•</span>
-                    <button data-target="view-form" class="nav-link hover:text-emerald-500 transition-colors">Donar</button>
+            <div class="border-t border-emerald-800 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-emerald-100/60">
+                <p>© 2026 DonaJusto · Entrega Final Integrador (EFI) de Programación II · ITEC Río Cuarto</p>
+                <div class="flex gap-4">
+                    <button data-target="view-team" class="hover:text-white">Equipo</button>
+                    <button data-target="view-catalog" class="hover:text-white">Comedores</button>
+                    <button data-target="view-form" class="hover:text-white">Donar</button>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modal de Detalle (Glassmorphism & Accesible) -->
-    <div id="detail-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
-        <div id="modal-overlay" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
-        
-        <div class="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden border border-slate-200 dark:border-slate-700" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-            <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center bg-white dark:bg-slate-800 z-10 transition-colors duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl font-bold">
-                        <svg class="w-5 h-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 id="modal-title" class="font-heading text-xl sm:text-2xl font-bold">Detalle del Comedor</h3>
-                        <p id="modal-subtitle" class="text-xs text-slate-500 dark:text-slate-400"></p>
-                    </div>
-                </div>
-                <button id="modal-close" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Cerrar modal">
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    <!-- ======================================================================
+         MODAL DE DETALLE (ADR-003)
+         ====================================================================== -->
+    <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-overlay" class="absolute inset-0 bg-emerald-950/70 backdrop-blur-sm" aria-hidden="true"></div>
+        <div id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1" class="relative w-full max-w-2xl max-h-[90vh] flex flex-col overflow-y-auto rounded-3xl bg-white dark:bg-slate-800 border-2 border-dashed border-emerald-400/70 focus:outline-none">
+            <div id="modal-header-band" class="bg-emerald-900 dark:bg-emerald-950 rounded-t-[1.35rem] p-6 text-white flex flex-col gap-2 relative">
+                <button id="modal-close" class="absolute top-4 right-4 w-11 h-11 rounded-full flex items-center justify-center text-emerald-100 hover:bg-emerald-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400" aria-label="Cerrar detalle">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
+                <span id="modal-status-badge" class="text-amber-300 text-[11px] font-bold uppercase tracking-widest block">Urgente</span>
+                <h2 id="modal-title" class="font-heading font-extrabold text-3xl tracking-tight pr-12">Comedor</h2>
+                <p id="modal-subtitle" class="text-emerald-100/80 text-sm"></p>
+                <div id="modal-meta" class="flex flex-wrap gap-x-5 gap-y-2 text-xs text-emerald-100/80 mt-1"></div>
             </div>
-            
-            <div id="modal-content" class="p-6 overflow-y-auto flex-grow space-y-6">
-                <!-- Dinámico: JS inyectará la información -->
-            </div>
-            
-            <div class="p-6 border-t border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between items-center gap-3 transition-colors duration-300">
-                <span class="text-xs text-slate-500 dark:text-slate-400">Tu donación coordinada ayuda a mantener el stock balanceado.</span>
-                <button id="modal-action-btn" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 force-text-white font-medium py-2.5 px-6 rounded-xl transition-all min-h-[44px] shadow-md shadow-amber-500/20 flex items-center justify-center gap-2">
-                    <span>Quiero donar aquí</span>
-                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <div id="modal-content" class="p-6 grid sm:grid-cols-2 gap-6"></div>
+            <div class="px-6 pb-6">
+                <button id="modal-action-btn" class="w-full rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold min-h-[48px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700">
+                    Donar a este comedor
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-[150%] opacity-0 bg-emerald-500 force-text-white px-6 py-4 rounded-2xl shadow-xl shadow-emerald-500/20 transition-all duration-300 z-50 flex items-center gap-3 border border-emerald-400/30">
-        <svg class="w-5 h-5 text-white flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        <p id="toast-message" class="font-medium text-sm">Mensaje enviado correctamente</p>
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-[150%] opacity-0 transition-all duration-300 rounded-full bg-emerald-900 text-white px-5 py-3 text-sm font-semibold shadow-xl" role="status" aria-live="polite">
+        <span id="toast-message"></span>
     </div>
 
-    <!-- Script Principal -->
     <script src="app.js"></script>
 </body>
 </html>
